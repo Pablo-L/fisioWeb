@@ -15,53 +15,7 @@
 
     </head>
 		<body>
-		
-		<!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR -->
-	
-		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		  <a class="navbar-brand" href="#">Clínicas Fisioweb</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-			  <li class="nav-item active">
-				<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link" href="#">Tratamientos</a>
-			  </li>
-			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  Dropdown
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="#">Action</a>
-				  <a class="dropdown-item" href="#">Another action</a>
-				  <div class="dropdown-divider"></div>
-				  <a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			  </li>
-			  <li class="nav-item">
-				<a class="nav-link disabled" href="#">En un futuro...</a>
-			  </li>
-			  <li class=nav-item>
-			  <a class="nav-link" href="#">Reservar cita</a>
-			  </li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
-		  </div>
-		</nav>
-
-		<!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR -->
-
-
-		
+		@include('navbar')
 		<!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL -->
 		
 		<div id="carouselHome" class="carousel slide" data-ride="carousel">
@@ -72,21 +26,21 @@
 		  </ol>
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
-			  <img class="d-block w-100 min-v-100" src="imagenes/carrusel1.jpg" height=680px> <!-- Imagen 1 del carrusel -->
+			  <img class="d-block w-100" src="imagenes/carrusel1.jpg" height=685px> <!-- Imagen 1 del carrusel -->
 				  <div class="carousel-caption d-none d-md-block">
 					<h5>Clínicas Fisioweb</h5>
 					<p>Con tratamientos para todo tipo de problemas fisiológicos.</p>
 				  </div>
 			</div>
 			<div class="carousel-item">
-			  <img class="d-block w-100" src="imagenes/carrusel2.jpg" height=680px> <!-- Imagen 2 del carrusel -->
+			  <img class="d-block w-100" src="imagenes/carrusel2.jpg" height=685px> <!-- Imagen 2 del carrusel -->
 			  	  <div class="carousel-caption d-none d-md-block">
 					<h5>Tratamientos de aromaterapia</h5>
 					<p>Realizamos masajes y tratamientos con aromaterapia para tratar lesiones causadas por el estrés.</p>
 				  </div>
 			</div>
 			<div class="carousel-item">
-			  <img class="d-block w-100" src="imagenes/carrusel3.jpg" height=680px> <!-- Imagen 3 del carrusel -->
+			  <img class="d-block w-100" src="imagenes/carrusel3.jpg" height=685px> <!-- Imagen 3 del carrusel -->
 			  	  <div class="carousel-caption d-none d-md-block">
 					<h5>Rehabilitación completa con seguimiento del paciente</h5>
 					<p>En clínicas Fisioweb damos un seguimiento completo a cualquier cliente durante los años posteriores a su rehabilitación.</p>
@@ -104,15 +58,7 @@
 		</div>
 		
 		<!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL --><!-- CARRUSEL -->
-		
-		@auth
-		<!-- Utilizar esta parte unicamente para cuando el usuario este logueado-->
-		@endauth
-
-		@guest
-		<!-- Esta parte solo para visitantes -->
-		@endguest
-
 		</body>
+		
 		@include('footer')
 </html>
