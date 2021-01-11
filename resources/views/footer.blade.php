@@ -20,20 +20,24 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text">Contacta con nosotros</h5>
+        <h5 class="text">&nbsp Contacta con nosotros</h5>
 		
         <ul class="list-unstyled mb-0">
 		&nbsp
           <li>
-            <a href="#!" class="text-light">Facebook</a>
+			<img src=/iconos/facebook.svg alt="" width="32" height="32"/>
+            <a href="#!"class="text-light">Facebook</a>
           </li>
           <li>
+		  <img src=/iconos/twitter.svg alt="" width="32" height="32"/>
             <a href="#!" class="text-light">Twitter</a>
           </li>
           <li>
+		  <img src=/iconos/instagram.svg alt="" width="32" height="32"/>
             <a href="#!" class="text-light">Instagram</a>
           </li>
           <li>
+		  <img src=/iconos/mailbox.svg alt="" width="32" height="32"/>
             <a href="#!" class="text-light">E-Mail</a>
           </li>
         </ul>
