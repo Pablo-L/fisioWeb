@@ -1,14 +1,14 @@
 # fisioWeb
-En este repositorio se va desarrollar una aplicación web correspondiente a una consulta de fisioterapia en la que se podrán hacer reservas.\
+En este repositorio se va desarrollar una aplicación web correspondiente a una consulta de fisioterapia en la que se podrán hacer reservas.
 
-La aplicación web contendrá cómo mínimo, los requisitos siguientes:\\
-
+La aplicación web contendrá cómo mínimo, los requisitos siguientes:\
+\
 –Varios perfiles de usuarios\
 –Registro de usuarios\
-–Identificación de usuarios.\ 
+–Identificación de usuarios.\
 	•Inicio y cierre de sesión, etc.\
 	•Control de seguridad–Web de back-office con mantenimientos de datos (mínimo dos CRUDs)\
-–Página principal y mínimo dos niveles de navegación completa con las operaciones necesarias implementadas.\
+–Página principal y mínimo dos niveles de navegación completa con las operaciones necesarias implementadas.
 
 De forma paralela, se preparará una documentación a presentar con los siguientes campos:\
 \
@@ -18,5 +18,8 @@ De forma paralela, se preparará una documentación a presentar con los siguient
 –Wireframes y mockups\
 	•Patrones de diseño web aplicados con su descripción y justificación.\
 –Diagramas: de datos, casos de uso, de clases, etc.\
-–Metodología y planificación–Descripción de la implementación, con detalles y explicaciones de partes del código más complejas.\
-–Problemas encontrados y su solución–Mejoras y ampliaciones–Referencias\
+–Metodología y planificación.\
+–Descripción de la implementación, con detalles y explicaciones de partes del código más complejas.\
+–Problemas encontrados y su solución.\
+–Mejoras y ampliaciones.\
+–Referencias.
