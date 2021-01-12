@@ -24,6 +24,8 @@ class CreateClientesTable extends Migration
 			$table->text('observaciones', 1000)->nullable();
             $table->timestamps();
         });
+		
+		DB::statement('ALTER TABLE clientes ADD CONSTRAINT chk_sexo_clientes CHECK (sexo in ("H", "M"));');
     }
 
     /**
@@ -35,4 +37,6 @@ class CreateClientesTable extends Migration
     {
         Schema::dropIfExists('clientes');
     }
+	
+	
 }

@@ -15,7 +15,7 @@ class CreatePoblacionTable extends Migration
     {
         Schema::create('poblacion', function (Blueprint $table) {
             $table->increments('id');
-			$table->string('nombre, 100');
+			$table->string('nombre', 100);
         });
     }
 
