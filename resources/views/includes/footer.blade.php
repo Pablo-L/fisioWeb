@@ -26,15 +26,15 @@
 		&nbsp
           <li>
 			<img src=/iconos/facebook.svg alt="" width="32" height="32"/>
-            <a href="#!"class="text-light">Facebook</a>
+            <a href="https://es-es.facebook.com/clinicafisioweb"class="text-light">Facebook</a>
           </li>
           <li>
 		  <img src=/iconos/twitter.svg alt="" width="32" height="32"/>
-            <a href="#!" class="text-light">Twitter</a>
+            <a href="https://twitter.com/clinicafisioweb" class="text-light">Twitter</a>
           </li>
           <li>
 		  <img src=/iconos/instagram.svg alt="" width="32" height="32"/>
-            <a href="#!" class="text-light">Instagram</a>
+            <a href="https://instagram.com/clinicafisioweb" class="text-light">Instagram</a>
           </li>
           <li>
 		  <img src=/iconos/mailbox.svg alt="" width="32" height="32"/>
@@ -51,17 +51,17 @@
         <ul class="list-unstyled">
 		&nbsp
           <li>
-            <a href="#!" class="text-light">Aviso legal</a>
+            <a href="/AvisoLegal" class="text-light">Aviso legal</a>
           </li>
           <li>
-            <a href="#!" class="text-light">Política de privacidad</a>
+            <a href="/Politicas" class="text-light">Política de privacidad</a>
           </li>
           <li>
-            <a href="#!" class="text-light">Términos y Condiciones</a>
+            <a href="/TerminosyCondiciones" class="text-light">Términos y Condiciones</a>
           </li>
         </ul>
 		<p>Teléfono: 912 41 34 22</p>
-		<p>Email: clinicafisio@fisio.com</p
+		<p>Email: clinicafisio@info.com</p
       </div>
       <!--Grid column-->
     </div>
