@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TratamientosController;
+use App\Http\Controllers\TrabajadoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\TratamientosController;
 
 Route::get('/', function () {return view('Inicio');});
 Route::get('/Inicio', function () {return view('Inicio');});
-Route::get('/Profesionales', function () {return view('Profesionales');});
+Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
 Route::get('/Tarifas', function () {return view('Tarifas');});
 Route::get('/Reserva', function () {return view('Reserva');});
 
