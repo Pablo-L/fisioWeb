@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
     {
 		\DB::Table('clientes')->delete();
 		\DB::Table('poblacion')->delete();
+		\DB::Table('tratamientos')->delete();
 		
 		$this->call(PoblacionTableSeeder::class);
 		$this->call(ClientesTableSeeder::class);
+		$this->call(TratamientosTableSeeder::class);
+		//$this->call(TrabajadoresTableSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }
