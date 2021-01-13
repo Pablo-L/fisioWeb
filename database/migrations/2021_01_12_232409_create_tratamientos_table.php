@@ -22,7 +22,7 @@ class CreateTratamientosTable extends Migration
 			$table->integer('tarifa');
         });
 		
-		DB::statement('ALTER TABLE tratamientos ADD CONSTRAINT chk_categoria_tratamientos CHECK (categoria in ("Fisioterapia", "Osteopatía", "Acupuntura", "Pilates", "Psicología"));');
+		DB::statement('ALTER TABLE tratamientos ADD CONSTRAINT chk_categoria_tratamientos CHECK (categoria in ("Fisioterapia", "Osteopatía", "Acupuntura"));');
 	}
 
     /**

@@ -20,8 +20,6 @@
 				  <a class="dropdown-item" href="/Fisioterapia">Fisioterapia</a>
 				  <a class="dropdown-item" href="/Osteopatia">Osteopatía</a>
 				  <a class="dropdown-item" href="/Acupuntura">Acupuntura</a>
-				  <a class="dropdown-item" href="/Pilates">Pilates</a>
-				  <a class="dropdown-item" href="/Psicologia">Psicología</a>
 				</div>
 			  </li>
 			  <li class=nav-item>

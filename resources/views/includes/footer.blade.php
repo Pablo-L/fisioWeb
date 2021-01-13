@@ -61,7 +61,6 @@
           </li>
         </ul>
 		<p>Teléfono: 912 41 34 22</p>
-		<p>Email: clinicafisio@info.com</p
       </div>
       <!--Grid column-->
     </div>
@@ -69,11 +68,5 @@
   </div>
   <!-- Grid container -->
 
-  <!-- Copyright -->
-  <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2021:
-    <a class="text-light" href="https://mdbootstrap.com/">Clínicas Fisioweb</a>
-  </div>
-  <!-- Copyright -->
 </footer>
 <!-- Footer -->
