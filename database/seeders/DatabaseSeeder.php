@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 		$this->call(PoblacionTableSeeder::class);
 		$this->call(ClientesTableSeeder::class);
 		$this->call(TratamientosTableSeeder::class);
-		//$this->call(TrabajadoresTableSeeder::class);
+		$this->call(TrabajadoresTableSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

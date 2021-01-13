@@ -65,11 +65,5 @@ class TratamientosTableSeeder extends Seeder
 		'tarifa' => '40']);
         $tratamiento->save();
 		
-		$tratamiento = new Tratamientos(['categoria' => 'Pilates','nombre' => 'Rehabilitación método Pilates', 'descripcion' => 'El método se centra en el desarrollo de los músculos internos para mantener 
-		el equilibrio corporal y dar estabilidad y firmeza a la columna vertebral, por lo que es muy usado como terapia en rehabilitación y para, por ejemplo, prevenir y curar el dolor de espalda.', 
-		'tarifa' => '40']);
-        $tratamiento->save();
-		
-		
     }
 }

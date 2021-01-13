@@ -17,12 +17,12 @@ class CreateTrabajadoresTable extends Migration
 		{
 			$table->string('DNI', 9);
 			$table->string('nombre', 100);
-			$table->integer('edad', 2);
+			$table->integer('edad');
 			$table->string('telefono', 25);
 			$table->string('email', 100)->nullable();
 			$table->string('sexo', 1)->default('F');
 			$table->unsignedInteger('poblacion');
-			$table->string('numero_cuenta', 24);
+			$table->string('numero_cuenta', 100);
             $table->timestamps();
         });
 		

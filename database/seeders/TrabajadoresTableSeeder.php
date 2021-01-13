@@ -13,6 +13,7 @@ class TrabajadoresTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+         \DB::table('trabajadores')->delete();
+		\App\Models\Trabajadores::factory()->count(10)->create(); 
     }
 }
