@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Tratamientos;
+use App\Models\Tratamientos;
 
 class TratamientosController extends Controller
 {
@@ -29,21 +29,5 @@ class TratamientosController extends Controller
                 ->where('categoria', '=', 'Osteopatia')
                 ->get();
         return view('static/Osteopatia', ['tratamientos' => $tratamientos]);
-    }
-	
-	public function obtenerTratamientosPilates()
-    {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Pilates')
-                ->get();
-        return view('static/Pilates', ['tratamientos' => $tratamientos]);
-    }
-	
-	public function obtenerTratamientosPsicologia()
-    {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Psicologia')
-                ->get();
-        return view('static/Psicologia', ['tratamientos' => $tratamientos]);
     }
 }

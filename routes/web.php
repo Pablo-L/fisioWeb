@@ -15,6 +15,7 @@ use App\Http\Controllers\TrabajadoresController;
 |
 */
 
+
 Route::get('/', function () {return view('Inicio');});
 Route::get('/Inicio', function () {return view('Inicio');});
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
@@ -30,3 +31,10 @@ Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOs
 Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');});
 Route::get('/Politicas', function() {return view('static/Politicas');});
 Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
