@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TratamientosController;
+use App\Http\Controllers\TrabajadoresController;
 
 /*
 |--------------------------------------------------------------------------
