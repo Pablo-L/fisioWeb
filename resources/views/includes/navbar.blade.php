@@ -35,17 +35,34 @@
 			
 			
 			@auth <!-- Utilizar esta parte unicamente para cuando el usuario este logueado-->
-			<ul class="navbar-nav mr-auto" style="margin-left:65%">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  {{ Auth::user()->name }}
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="/profile">Perfil</a>
-				  <a class="dropdown-item" href="/logout">Cerrar sesión</a>
-				</div>
-			  </li>
-			  </ul>
+
+				@if (Auth::user()->rol == "admin")
+				
+				<ul class="navbar-nav mr-auto" style="margin-left:55%;">
+					<li>
+					<a class="navbar-item" href="/adminPanel" style="padding-right:30px;">Panel de administración</a>
+					</li>
+					<li>
+					<a class="navbar-item" href="/logout">Cerrar sesión</a>
+				  </li>
+				</ul>
+				
+				@else
+				
+				<ul class="navbar-nav mr-auto" style="margin-left:65%">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  {{ Auth::user()->name }}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <a class="dropdown-item" href="/profile">Perfil</a>
+					  <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+					</div>
+				  </li>
+				</ul>
+				
+				@endif
+
 			@endauth
 
 			@guest <!-- Esta parte solo para visitantes -->

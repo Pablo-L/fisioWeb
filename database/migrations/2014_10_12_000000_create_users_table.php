@@ -19,9 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+			$table->string('rol')->default('user');;
             $table->rememberToken();
             $table->timestamps();
         });
+		
+		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_rol_users CHECK (rol in ("user", "admin"));');
     }
 
     /**
