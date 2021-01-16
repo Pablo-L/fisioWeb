@@ -16,11 +16,11 @@ use App\Http\Controllers\TrabajadoresController;
 */
 
 
-Route::get('/', function () {return view('Inicio');});
+Route::get('/', function () {return view('Inicio');})->name('inicio');
 Route::get('/Inicio', function () {return view('Inicio');});
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
 Route::get('/Tarifas', function () {return view('Tarifas');});
-Route::get('/Reserva', function () {return view('Reserva');});
+Route::get('/Reserva', function () {return view('Reserva');})->middleware(['auth'])->name('reserva');
 
 
 
@@ -33,7 +33,7 @@ Route::get('/Politicas', function() {return view('static/Politicas');});
 Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
 
 
-Route::get('/dashboard', function () {
+Route::get('/profile', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 

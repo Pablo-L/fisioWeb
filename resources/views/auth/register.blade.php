@@ -1,9 +1,13 @@
+@extends ('layout')
+
+@section('contenido')
+
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand">Clínicas Fisioweb</a>
+		  </nav
         </x-slot>
 
         <!-- Validation Errors -->
@@ -57,3 +61,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+@stop
