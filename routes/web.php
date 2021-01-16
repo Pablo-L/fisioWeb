@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TratamientosController;
-use App\Http\Controllers\TrabajadoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +13,12 @@ use App\Http\Controllers\TrabajadoresController;
 |
 */
 
-Route::get('/', function () {return view('Inicio');});
-Route::get('/Inicio', function () {return view('Inicio');});
-Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
-Route::get('/Tarifas', function () {return view('Tarifas');});
-Route::get('/Reserva', function () {return view('Reserva');});
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-
-// Tratamientos - Informacion estatica
-Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
-Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura']);
-Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia']);
-Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');});
-Route::get('/Politicas', function() {return view('static/Politicas');});
-Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
+require __DIR__.'/auth.php';
