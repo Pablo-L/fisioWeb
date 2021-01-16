@@ -21,8 +21,8 @@ Route::get('/Inicio', function () {return view('Inicio');});
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
 Route::get('/Tarifas', function () {return view('Tarifas');});
 
-Route::get('/Reserva/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador']);
-
+Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador']);
+Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente']);
 // Tratamientos - Informacion estatica
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura']);

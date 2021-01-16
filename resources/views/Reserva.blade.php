@@ -7,7 +7,6 @@
 	@foreach ($reservas as $reserva)
 		<li>{{$reserva->hora}}</li>
 		<li>{{$reserva->dia}}</li>
-		<li>{{$reserva->cliente_id}}</li>
 	@endforeach
 	</ul>
 

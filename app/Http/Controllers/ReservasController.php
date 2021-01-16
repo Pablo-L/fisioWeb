@@ -18,7 +18,12 @@ class ReservasController extends Controller
         return view('/Reserva', ['reservas' => $reservas]);
     } 
     //dado un id de cliente muestra el listado de citas del cliente
-
+    public function obtenerListadoCitasCliente($cliente_id)
+    {	
+        $reservas = \DB::table('reservas')->select('hora','dia','trabajador_id')
+                                                ->where('cliente_id',$cliente_id)->get();
+        return view('/Reserva', ['reservas' => $reservas]);
+    }
     //dado un id de trabajador y una fecha devuelve un bool que determina si el día esta libre o no
 
     //dado un id de trabajador y una fecha y una hora devuelve un bool que determina si esa hora esta disponible o no
