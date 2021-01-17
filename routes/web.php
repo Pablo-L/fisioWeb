@@ -25,6 +25,9 @@ Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerLista
 Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente']);
 Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'realizarReservaTiempo']);
 Route::get('/Reserva/cliente/{hora}/{dia}/{idT}/{idC}', [ReservasController::class, 'realizarReservaCita']);
+Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'comprobarDiaDisponible']);
+Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible']);
+
 // Tratamientos - Informacion estatica
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura']);

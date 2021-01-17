@@ -43,8 +43,29 @@ class ReservasController extends Controller
                                                 ->where('cliente_id',$cliente_id)->get();
         return view('/Reserva', ['reservas' => $reservas]);
     }
-    //dado un id de trabajador y una fecha devuelve un bool que determina si el día esta libre o no
+    //dado un id de trabajador y una fecha devuelve un 'bool' que determina si el día esta libre o no
+    public function comprobarDiaDisponible($trabajador_id, $dia)
+    {	
+        $disponible = \DB::table('reservas')->where('trabajador_id', $trabajador_id)
+                                                ->where('dia', $dia)->count();
 
+        if($disponible < 8)       {
+            return 1;
+        }else{
+            return 0;
+        }       
+    }
     //dado un id de trabajador y una fecha y una hora devuelve un bool que determina si esa hora esta disponible o no
+    public function comprobarHoraDisponible($trabajador_id, $dia, $hora)
+    {	
+        $disponible = \DB::table('reservas')->where('trabajador_id', $trabajador_id)
+                                                ->where('dia', $dia)
+                                                ->where('hora', $hora)->count();
 
+        if($disponible != NULL || $disponible > 0)       {
+            return 0;
+        }else{
+            return 1;
+        }       
+    }
 }
