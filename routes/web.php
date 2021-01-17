@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TratamientosController;
 use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,14 +49,7 @@ Route::get('/adminPanel', function()
 	return redirect('/login');
 })->middleware(['auth']);
 
-Route::get('adminPanel_tratamientos', function() 
-{
-	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminpanel_tratamientos');
-
-	else
-	return redirect('/login');
-})->middleware(['auth']);
+Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth']);
 
 Route::get('adminPanel_profesionales', function() 
 {
