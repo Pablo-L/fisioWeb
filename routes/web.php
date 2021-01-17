@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TratamientosController;
 use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,15 +38,48 @@ Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');});
 Route::get('/Politicas', function() {return view('static/Politicas');});
 Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
 
+
+//Panel de administracion -- Panel de administracion -- Panel de administracion
 Route::get('/adminPanel', function() 
 {
 	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminPanel');
+	return view('admin/adminpanel_home');
 
 	else
 	return redirect('/login');
 })->middleware(['auth']);
 
+Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth']);
+
+Route::get('adminPanel_profesionales', function() 
+{
+	if(Auth::check() && Auth::user()->rol == "admin")
+	return view('admin/adminpanel_profesionales');
+
+	else
+	return redirect('/login');
+})->middleware(['auth']);
+
+Route::get('adminPanel_citas', function() 
+{
+	if(Auth::check() && Auth::user()->rol == "admin")
+	return view('admin/adminpanel_citas');
+
+	else
+	return redirect('/login');
+})->middleware(['auth']);
+
+Route::get('adminPanel_usuarios', function() 
+{
+	if(Auth::check() && Auth::user()->rol == "admin")
+	return view('admin/adminpanel_usuarios');
+
+	else
+	return redirect('/login');
+})->middleware(['auth']);
+
+
+//Panel de administracion -- Panel de administracion -- Panel de administracion
 
 Route::get('/profile', function () {
     return view('dashboard');
