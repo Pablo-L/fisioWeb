@@ -35,19 +35,43 @@
 			
 			
 			@auth <!-- Utilizar esta parte unicamente para cuando el usuario este logueado-->
-			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
-			  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
+
+				@if (Auth::user()->rol == "admin")
+				
+				<ul class="navbar-nav mr-auto" style="margin-left:55%;">
+					<li>
+					<a class="navbar-item" href="/adminPanel" style="padding-right:30px;">Panel de administración</a>
+					</li>
+					<li>
+					<a class="navbar-item" href="/logout">Cerrar sesión</a>
+				  </li>
+				</ul>
+				
+				@else
+				
+				<ul class="navbar-nav mr-auto" style="margin-left:64%">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  {{ Auth::user()->name }}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <a class="dropdown-item" href="/profile">Perfil</a>
+					  <a class="dropdown-item" href="/logout">Cerrar sesión</a>
+					</div>
+				  </li>
+				</ul>
+				
+				@endif
+
 			@endauth
 
 			@guest <!-- Esta parte solo para visitantes -->
 			<ul class="navbar-nav mr-auto" style="margin-left:60%">
 			<li class="nav-item">
-				<a class="nav-link" href="#">Iniciar sesión</a>
+				<a class="nav-link" href="/login">Iniciar sesión</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Registrarse</a>
+				<a class="nav-link" href="/register">Registrarse</a>
 			</li>
 			<li>
 			</ul>
