@@ -32,6 +32,15 @@ Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');});
 Route::get('/Politicas', function() {return view('static/Politicas');});
 Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
 
+Route::get('/adminPanel', function() 
+{
+	if(Auth::check() && Auth::user()->rol == "admin")
+	return view('admin/adminPanel');
+
+	else
+	return redirect('/login');
+})->middleware(['auth']);
+
 
 Route::get('/profile', function () {
     return view('dashboard');

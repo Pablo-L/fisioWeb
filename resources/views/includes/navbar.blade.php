@@ -22,13 +22,13 @@
 				  <a class="dropdown-item" href="/Acupuntura">Acupuntura</a>
 				</div>
 			  </li>
-			  <li class=nav-item>
+			  <li class="nav-item">
 			  <a class="nav-link" href="/Profesionales">Profesionales</a>
 			  </li>
-			  <li class=nav-item>
+			  <li class="nav-item">
 			  <a class="nav-link" href="/Tarifas">Tarifas</a>
 			  </li>
-			  <li class=nav-item>
+			  <li class="nav-item">
 			  <a class="nav-link" href="/Reserva">Reservar cita</a>
 			  </li>
 			</ul>
