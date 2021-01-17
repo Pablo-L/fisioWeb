@@ -7,7 +7,17 @@ use App\Models\Reservas;
 class ReservasController extends Controller
 {
     //dado un id de cliente y uno de trabajador realiza una reserva
-   
+    public function realizarReservaCita($hora, $dia, $id_trabajador, $cliente_id)
+    {	
+        $reservas =  Reservas::create([
+                                        'hora' => $hora,
+                                        'dia' => $dia,
+                                        'trabajador_id' => $id_trabajador,
+                                        'cliente_id' => $cliente_id,
+                                      ]);
+        return true;
+    } 
+
     //dado un id de trabajador realiza una reserva de tiempo ocupado
     public function realizarReservaTiempo($hora, $dia, $id_trabajador)
     {	
