@@ -40,7 +40,7 @@ Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCon
 Route::get('/adminPanel', function() 
 {
 	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminPanel');
+	return view('admin/adminpanel_home');
 
 	else
 	return redirect('/login');
