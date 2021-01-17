@@ -23,6 +23,8 @@ Route::get('/Tarifas', function () {return view('Tarifas');});
 
 Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador']);
 Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente']);
+Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'realizarReservaTiempo']);
+
 // Tratamientos - Informacion estatica
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura']);

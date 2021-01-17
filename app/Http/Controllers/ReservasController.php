@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Reservas;
 class ReservasController extends Controller
 {
     //dado un id de cliente y uno de trabajador realiza una reserva
    
     //dado un id de trabajador realiza una reserva de tiempo ocupado
+    public function realizarReservaTiempo($hora, $dia, $id_trabajador)
+    {	
+        $reservas =  Reservas::create([
+                                        'hora' => $hora,
+                                        'dia' => $dia,
+                                        'trabajador_id' => $id_trabajador,
+                                      ]);
+        return true;
+    } 
 
     //dado un id de trabajador muestra un listado de citas
     public function obtenerListadoCitasTrabajador($id_trabajador)
