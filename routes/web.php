@@ -29,6 +29,8 @@ Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'reali
 Route::get('/Reserva/cliente/{hora}/{dia}/{idT}/{idC}', [ReservasController::class, 'realizarReservaCita'])->middleware(['auth']);
 Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'comprobarDiaDisponible'])->middleware(['auth']);
 Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible'])->middleware(['auth']);
+Route::post('/reservar', [ReservasController::class, 'realizarReservaCita'])->middleware(['auth'])->name('reservar');
+Route::get('/reservaConfirmacion', function() {return view('static/reservaConfirmacion');});
 
 // Tratamientos - Informacion estatica
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
