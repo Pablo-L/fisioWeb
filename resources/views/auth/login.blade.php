@@ -6,7 +6,7 @@
         <x-slot name="logo">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		  <a class="navbar-brand">Clínicas Fisioweb</a>
-		  </nav
+		  </nav>
         </x-slot>
 
         <!-- Session Status -->

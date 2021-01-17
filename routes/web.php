@@ -22,7 +22,7 @@ Route::get('/Inicio', function () {return view('Inicio');});
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
 Route::get('/Tarifas', function () {return view('Tarifas');});
 
-Route::get('/Reserva', function () {return view('ReservaForm');})->middleware(['auth'])->name('reserva');
+Route::get('/Reserva', function () {return view('ReservarForm');})->middleware(['auth'])->name('reserva');
 Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador'])->middleware(['auth']);
 Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente'])->middleware(['auth']);
 Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'realizarReservaTiempo'])->middleware(['auth']);
