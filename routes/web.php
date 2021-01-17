@@ -21,6 +21,7 @@ Route::get('/Inicio', function () {return view('Inicio');});
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
 Route::get('/Tarifas', function () {return view('Tarifas');});
 
+Route::get('/Reserva', function () {return view('ReservarForm');});
 Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador']);
 Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente']);
 Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'realizarReservaTiempo']);
