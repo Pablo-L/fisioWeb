@@ -5,6 +5,7 @@ use App\Http\Controllers\TratamientosController;
 use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RecepcionistaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,5 +85,19 @@ Route::get('adminPanel_usuarios', function()
 Route::get('/profile', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+//Panel de recepcionista
+
+Route::get('/recepcionista', function (){
+	if(Auth::check() && Auth::user()->rol == "recepcionista")
+		return view('recepcionista/home');
+	else
+		return redirect('/login');
+})->middleware(['auth']);
+
+route::get('recepcionista_citas', [RecepcionistaController::class, 'obtenerClientes'])->middleware(['auth']);
+route::get('recepcionista_libres', [RecepcionistaController::class, 'obtenerLibres'])->middleware(['auth']);
+route::post('recepcionista_reserva', [RecepcionistaController::class, 'reservar'])->middleware(['auth'])->name('recepcionista_reserva');
 
 require __DIR__.'/auth.php';
