@@ -51,13 +51,13 @@
         <ul class="list-unstyled">
 		&nbsp
           <li>
-            <a href="/AvisoLegal" class="text-light">Aviso legal</a>
+            <a href="{{route('infoAvisoLegal')}}" class="text-light">Aviso legal</a>
           </li>
           <li>
-            <a href="/Politicas" class="text-light">Política de privacidad</a>
+            <a href="{{route('infoPoliticas')}}" class="text-light">Política de privacidad</a>
           </li>
           <li>
-            <a href="/TerminosyCondiciones" class="text-light">Términos y Condiciones</a>
+            <a href="{{route('infoTerminosyCondiciones')}}" class="text-light">Términos y Condiciones</a>
           </li>
         </ul>
 		<p>Teléfono: 912 41 34 22</p>

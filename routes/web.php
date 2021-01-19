@@ -18,10 +18,10 @@ use App\Http\Controllers\AdminController;
 */
 
 
-Route::get('/', function () {return view('Inicio');})->name('inicio');
-Route::get('/Inicio', function () {return view('Inicio');});
-Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
-Route::get('/Tarifas', function () {return view('Tarifas');});
+Route::redirect('/', '/Inicio');
+Route::get('/Inicio', function () {return view('Inicio');})->name('inicio');
+Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores'])->name('infoProfesionales');
+Route::get('/Tarifas', function () {return view('Tarifas');})->name('infoTarifas');
 
 Route::get('/Reserva/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador']);
 Route::get('/Reserva/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente']);
@@ -31,12 +31,12 @@ Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'compro
 Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible']);
 
 // Tratamientos - Informacion estatica
-Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia']);
-Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura']);
-Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia']);
-Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');});
-Route::get('/Politicas', function() {return view('static/Politicas');});
-Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');});
+Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
+Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
+Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
+Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');})->name('infoAvisoLegal');
+Route::get('/Politicas', function() {return view('static/Politicas');})->name('infoPoliticas');
+Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');})->name('infoTerminosyCondiciones');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
@@ -47,7 +47,7 @@ Route::get('/adminPanel', function()
 
 	else
 	return redirect('/login');
-})->middleware(['auth']);
+})->middleware(['auth'])->name('adminPanel');
 
 Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth']);
 
@@ -83,6 +83,6 @@ Route::get('adminPanel_usuarios', function()
 
 Route::get('/profile', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('profile');
 
 require __DIR__.'/auth.php';
