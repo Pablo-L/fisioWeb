@@ -34,9 +34,7 @@ Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
 Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
-Route::get('/AvisoLegal', function() {return view('static/AvisoLegal');})->name('infoAvisoLegal');
 Route::get('/Politicas', function() {return view('static/Politicas');})->name('infoPoliticas');
-Route::get('/TerminosyCondiciones', function() {return view('static/TerminosyCondiciones');})->name('infoTerminosyCondiciones');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion

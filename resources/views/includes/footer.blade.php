@@ -6,15 +6,11 @@
     <!--Grid row-->
     <div class="row">
       <!--Grid column-->
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Sobre nosotros</h5>
-
-        <p>
-         Llevamos trabajando para el cuidado y el tratamiento de patologías
-		 fisiológicas y psicológicas desde 1963. Nuestros expertos están titulados
-		 en distintos campos desde fisioterapia hasta psicología para cumplir con las 
-		 necesidades de nuestros clientes.
-        </p>
+      <div class="col-lg-5 col-md-12 mb-4 mb-md-0 text-center">
+        <h5 class="text text-center">Sobre nosotros</h5>
+         Llevamos trabajando para el tratamiento de patologías
+		 fisiológicas desde 1963. <br>© 2021 Copyright:
+		<a class="text-light">Clínicas Fisioweb</a>
       </div>
       <!--Grid column-->
 
@@ -22,8 +18,7 @@
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text">&nbsp Contacta con nosotros</h5>
 		
-        <ul class="list-unstyled mb-0">
-		&nbsp
+        <ul class="list-unstyled mb-0" style="columns:2">
           <li>
 			<img src=/iconos/facebook.svg alt="" width="32" height="32"/>
             <a href="https://es-es.facebook.com/clinicafisioweb"class="text-light">Facebook</a>
@@ -46,21 +41,17 @@
 
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text mb-0">Información</h5>
+        <h5 class="text mb-0";">Información</h5>
 
-        <ul class="list-unstyled">
-		&nbsp
-          <li>
-            <a href="{{route('infoAvisoLegal')}}" class="text-light">Aviso legal</a>
-          </li>
+        <ul class="list-unstyled" style="columns:1">
           <li>
             <a href="{{route('infoPoliticas')}}" class="text-light">Política de privacidad</a>
           </li>
-          <li>
-            <a href="{{route('infoTerminosyCondiciones')}}" class="text-light">Términos y Condiciones</a>
-          </li>
+		  <li>
+		  <p class="text">Teléfono: 912 41 34 22</p>
+		  </li>
         </ul>
-		<p>Teléfono: 912 41 34 22</p>
+		
       </div>
       <!--Grid column-->
     </div>
