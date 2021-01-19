@@ -86,7 +86,7 @@ Route::get('/perfil', function () {
     return view('/perfil/perfil_home');
 })->middleware(['auth'])->name('profile');
 
-Route::post('/perfil', [UserController::class, 'update'])->middleware(['auth'])->name('profileEdit');
+Route::post('/perfil', [UserController::class, 'update'])->middleware(['auth'])->name('profileEditPersonal');
 
 Route::get('/perfil/miscitas', function () 
 {

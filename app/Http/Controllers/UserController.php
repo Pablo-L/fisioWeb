@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Auth;
+use Hash;
 
 class UserController extends Controller
 {
@@ -13,16 +16,27 @@ class UserController extends Controller
 		$nuevacontrasenya = $request->input('newpasswordinput');
 		$contrasenya = $request->input('actualpasswordinput');
 		$confirmacontrasenya = $request->input('confirmpasswordinput');
-		$user_id=Auth::user()->id;
 
 		$u = User::findorFail(Auth::user()->id);
 		
 		$u->name = $nombre;
 		$u->email = $email;
-		$u->password = $contrasenya;
+		
+		if($nuevacontrasenya != NULL)
+		{
+			if($nuevacontrasenya == $confirmacontrasenya && (Hash::check($contrasenya, Auth::user()->password)))
+			{
+				$u->password = Hash::make($nuevacontrasenya);
+			}
+			
+			else
+			{
+				return redirect()->route('profile')->with('error','Las contraseñas no son correctas o no coinciden.');
+			}
+		}
 		
 		$u->save();
 		
-		return redirect()->route('profile');
+		return redirect()->route('profile')->with('success','Datos cambiados con éxito.');
     }
 }
