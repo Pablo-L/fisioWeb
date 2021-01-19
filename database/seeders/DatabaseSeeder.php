@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
 		\DB::Table('clientes')->delete();
 		\DB::Table('poblacion')->delete();
 		\DB::Table('tratamientos')->delete();
-<<<<<<< HEAD
         \DB::Table('reservas')->delete();
 
 		$this->call(PoblacionTableSeeder::class);
@@ -24,7 +23,6 @@ class DatabaseSeeder extends Seeder
 		$this->call(TratamientosTableSeeder::class);
         $this->call(TrabajadoresTableSeeder::class);
         $this->call(ReservaTableSeeders::class);
-=======
 		\DB::Table('trabajadores')->delete();
 		\DB::Table('users')->delete();
 		
@@ -33,7 +31,6 @@ class DatabaseSeeder extends Seeder
 		$this->call(TratamientosTableSeeder::class);
 		$this->call(TrabajadoresTableSeeder::class);
 		$this->call(UsersTableSeeder::class);
->>>>>>> origin/Cristian
         // \App\Models\User::factory(10)->create();
     }
 }
