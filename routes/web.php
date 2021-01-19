@@ -30,11 +30,11 @@ Route::get('/Reserva/cliente/{hora}/{dia}/{idT}/{idC}', [ReservasController::cla
 Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'comprobarDiaDisponible']);
 Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible']);
 
-// Tratamientos - Informacion estatica
+
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
 Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
-Route::get('/Politicas', function() {return view('static/Politicas');})->name('infoPoliticas');
+Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoliticas');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
@@ -82,7 +82,7 @@ Route::get('adminPanel_usuarios', function()
 //Perfil de usuario -- Perfil de usuario -- Perfil de usuario
 
 Route::get('/perfil', function () {
-    return view('dashboard');
+    return view('/perfil/perfil_home');
 })->middleware(['auth'])->name('profile');
 
 Route::get('/perfil/miscitas', function () 
