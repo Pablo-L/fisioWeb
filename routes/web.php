@@ -19,10 +19,10 @@ use App\Http\Controllers\RecepcionistaController;
 */
 
 
-Route::get('/', function () {return view('Inicio');})->name('inicio');
-Route::get('/Inicio', function () {return view('Inicio');});
-Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores']);
-Route::get('/Tarifas', function () {return view('Tarifas');});
+Route::redirect('/', '/Inicio');
+Route::get('/Inicio', function () {return view('Inicio');})->name('inicio');
+Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores'])->name('infoProfesionales');
+Route::get('/Tarifas', function () {return view('Tarifas');})->name('infoTarifas');
 
 Route::get('/Reserva/{idt}', [ReservasController::class, 'realizarReservaForm'])->middleware(['auth'])->name('reserva');
 Route::get('/Reservas/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador'])->middleware(['auth']);
@@ -33,6 +33,9 @@ Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'compro
 Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible'])->middleware(['auth']);
 Route::post('/reservar', [ReservasController::class, 'realizarReservaCita'])->middleware(['auth'])->name('reservar');
 Route::get('/reservaConfirmacion', function() {return view('static/reservaConfirmacion');});
+
+
+
 
 
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
