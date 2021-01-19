@@ -12,24 +12,8 @@
 			  <li class="nav-item">
 				<a class="nav-link" href="{{route('inicio')}}">Inicio</a>
 			  </li>
-			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  Tratamientos
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="{{route('infoFisioterapia')}}">Fisioterapia</a>
-				  <a class="dropdown-item" href="{{route('infoOsteopatia')}}">Osteopatía</a>
-				  <a class="dropdown-item" href="{{route('infoAcupuntura')}}">Acupuntura</a>
-				</div>
-			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" href="{{route('infoProfesionales')}}">Profesionales</a>
-			  </li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="{{route('infoTarifas')}}">Tarifas</a>
-			  </li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="/Reserva">Reservar cita</a>
+			  <a class="nav-link" href="{{route('miscitas')}}">Mis citas</a>
 			  </li>
 			</ul>
 			
