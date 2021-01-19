@@ -81,8 +81,15 @@ Route::get('adminPanel_usuarios', function()
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
 
-Route::get('/profile', function () {
+//Perfil de usuario -- Perfil de usuario -- Perfil de usuario
+
+Route::get('/perfil', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('profile');
+
+Route::get('/perfil/miscitas', function () 
+{
+    return view('perfil_citas');
+})->middleware(['auth'])->name('miscitas');
 
 require __DIR__.'/auth.php';
