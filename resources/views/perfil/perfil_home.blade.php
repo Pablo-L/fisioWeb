@@ -2,22 +2,22 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#a7c5ed; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+	<div class="jumbotron" style="background-color:#85929e; border-top: 1px solid #000; border-bottom: 1px solid #000;">
 	  <h1 class="display-4">¡Bienvenido a tu perfil de Fisioweb, {{ Auth::user()->name }}!</h1>
 	  <p class="lead">Aquí puedes revisar tus datos, métodos de págo, citas pendientes, etcétera.</p>
 	  <hr class="my-4">
 	  
 		<div id="accordion">
 		  <div class="card">
-			<div class="card-header" style="background-color: #4d7ebf;" id="headingOne">
+			<div class="card-header" style="background-color: #34495e;" id="headingOne">
 			  <h5 class="mb-0">
-				<button class="btn btn-link" data-toggle="collapse" style="color:black;"  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+				<button class="btn btn-link" data-toggle="collapse" style="color:white;"  data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 				 <strong> Datos personales</strong>
 				</button>
 			  </h5>
 			</div>
 
-			<div id="collapseOne" class="collapse show" style="background-color: #649de8;" aria-labelledby="headingOne" data-parent="#accordion">
+			<div id="collapseOne" class="collapse show" style="background-color: #283747 ;" aria-labelledby="headingOne" data-parent="#accordion">
 			
 				  <div class="card-body">
 					 <div class="input-group mb-3">
@@ -65,14 +65,19 @@
 				     </div>
 				  </div>
 				  
+				  <div class="card-body">
+					 <div class="input-group mb-3">
+				  <div class="input-group-prepend">
+				  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exitoModal">Guardar cambios</button></div>
+				  </div></div>
 				  
 
 			</div>
 		  </div>
 		  <div class="card">
-			<div class="card-header" style="background-color: #4d7ebf;" id="headingTwo">
+			<div class="card-header" style="background-color: #34495e;" id="headingTwo">
 			  <h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse" style="color:black;"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				<button class="btn btn-link collapsed" data-toggle="collapse" style="color:white;"  data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 				  <strong>Mis direcciones de facturación</strong>
 				</button>
 			  </h5>
@@ -84,9 +89,9 @@
 			</div>
 		  </div>
 		  <div class="card">
-			<div class="card-header" style="background-color: #4d7ebf;" id="headingThree">
+			<div class="card-header" style="background-color: #34495e;" id="headingThree">
 			  <h5 class="mb-0">
-				<button class="btn btn-link collapsed" data-toggle="collapse" style="color:black;" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+				<button class="btn btn-link collapsed" data-toggle="collapse" style="color:white;" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 				 <strong> Mis métodos de pago</strong>
 				</button>
 			  </h5>
@@ -98,8 +103,15 @@
 			</div>
 		  </div>
 		</div>
-
-
 	</div>
+	
+	 <div class="modal fade" id="exitoModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="alert alert-success alert-dismissible">
+            <a  class="close" data-dismiss="modal" data-dismiss="modal" aria-label="close">&times;</a>
+            <strong>¡Éxito!</strong> Los datos personales se han modificado.
+          </div>
+    </div>
+  </div>
 	
 @stop
