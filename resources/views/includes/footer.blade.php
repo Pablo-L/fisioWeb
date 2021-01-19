@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="bg-dark text-center text-light text-lg-start fixed-bottom">
+<footer class="bg-dark text-center text-light text-lg-start">
 	
   <!-- Grid container -->
   <div class="container">
