@@ -20,5 +20,8 @@ class UsersTableSeeder extends Seeder
         $user = new User(['name' => 'Admin Administrador Administra','email' => 'fisioweb@admin.com', 'password' => Hash::make('testtest'), 
 		'rol' => 'admin']);
         $user->save();
+        $user = new User(['name' => 'Recepcionista','email' => 'fisioweb@recepcionista.com', 'password' => Hash::make('testtest'), 
+        'rol' => 'recepcionista']);
+        $user->save();
     }
 }

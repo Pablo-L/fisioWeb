@@ -36,6 +36,11 @@ class AuthenticatedSessionController extends Controller
 			return redirect('adminPanel');
 
 		else
+
+        if(Auth::user()->rol == "recepcionista")
+            return redirect('/recepcionista');
+
+        else
 			
         return redirect(RouteServiceProvider::HOME);
     }
