@@ -30,7 +30,7 @@
                 <x-input id="hora" class="block mt-1 w-full" type="time" name="hora" :value="old('hora')" required autofocus />
             </div>
             <x-input id="trabajador_id" type="hidden" name="trabajador_id" value="{{$trabajador_id}}"/>
-            <x-input id="cliente_id" type="hidden" name="cliente_id" value="{{$cliente_id}}"/>
+            <x-input id="cliente_id" type="hidden" name="cliente_id" value="{{Auth::user() ->id}}"/>
             <span id="spanMensaje" style="color:green;"></span>
             <div class="flex items-center justify-end mt-4">
                 <x-button class="ml-3" onclick="reservar()">

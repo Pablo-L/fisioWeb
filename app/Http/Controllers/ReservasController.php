@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Reservas;
 class ReservasController extends Controller
 {
-    public function realizarReservaForm($trabajador_id, $cliente_id){
-        return view('/ReservarForm', ['trabajador_id' => $trabajador_id, 'cliente_id' => $cliente_id]);
+    public function realizarReservaForm($trabajador_id){
+        return view('/ReservarForm', ['trabajador_id' => $trabajador_id]);
     } 
     //dado un id de cliente y uno de trabajador realiza una reserva
     public function realizarReservaCita(Request $request)
