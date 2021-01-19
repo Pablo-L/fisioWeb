@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 		
-		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_rol_users CHECK (rol in ("user", "admin"));');
+		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_rol_users CHECK (rol in ("user", "admin", "recepcionista"));');
     }
 
     /**
