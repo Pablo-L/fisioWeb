@@ -2,10 +2,30 @@
 
 @section('contenido')
 
+
 	<div class="jumbotron" style="background-color:#85929e; border-top: 1px solid #000; border-bottom: 1px solid #000;">
 	  <h1 class="display-4">¡Bienvenido a tu perfil de Fisioweb, {{ Auth::user()->name }}!</h1>
 	  <p class="lead">Aquí puedes revisar tus datos, métodos de págo, citas pendientes, etcétera.</p>
 	  <hr class="my-4">
+	  
+		  @if (\Session::has('success'))
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+			{!! \Session::get('success') !!}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		@endif
+		
+		@if (\Session::has('error'))
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			{!! \Session::get('error') !!}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		@endif
+	  
 	  
 		<div id="accordion">
 		  <div class="card">
@@ -17,7 +37,7 @@
 			  </h5>
 			</div>
 
-			<div id="collapseOne" class="collapse show" style="background-color: #283747 ;" aria-labelledby="headingOne" data-parent="#accordion">
+			<div id="collapseOne" class="collapse" style="background-color: #283747 ;" aria-labelledby="headingOne" data-parent="#accordion">
 			<form method="POST" action="{{ route('profileEditPersonal') }}">
             @csrf
 			@method('POST')
@@ -85,7 +105,7 @@
 				</button>
 			  </h5>
 			</div>
-			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" style="background-color: #649de8; data-parent="#accordion">
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" style="background-color: #283747;" data-parent="#accordion">
 			  <div class="card-body">
 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			  </div>
@@ -99,7 +119,7 @@
 				</button>
 			  </h5>
 			</div>
-			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" style="background-color: #649de8; data-parent="#accordion">
+			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" style="background-color: #283747;" data-parent="#accordion">
 			  <div class="card-body">
 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			  </div>
