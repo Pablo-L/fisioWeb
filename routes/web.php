@@ -6,6 +6,7 @@ use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RecepcionistaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,9 +88,21 @@ Route::get('adminPanel_usuarios', function()
 
 //Perfil de usuario -- Perfil de usuario -- Perfil de usuario
 
-Route::get('/perfil', function () {
-    return view('/perfil/perfil_home');
-})->middleware(['auth'])->name('profile');
+Route::get('/perfil', [UserController::class, 'show'])->middleware(['auth'])->name('profile');
+
+Route::post('/perfil', [UserController::class, 'update'])->middleware(['auth'])->name('profileEditPersonal');
+
+Route::post('/perfil/eliminardireccion', [UserController::class, 'eliminarDireccion'])->middleware(['auth'])->name('profileEliminarDireccion');
+
+Route::post('/perfil/anadirdireccion', [UserController::class, 'anadirDireccion'])->middleware(['auth'])->name('profileAnadirDireccion');
+
+Route::post('/perfil/modificardireccion', [UserController::class, 'modificarDireccion'])->middleware(['auth'])->name('profileModificarDireccion');
+
+Route::post('/perfil/eliminarMetodoPago', [UserController::class, 'eliminarMetodoPago'])->middleware(['auth'])->name('profileliminarMetodoPago');
+
+Route::post('/perfil/anadirMetodoPago', [UserController::class, 'anadirMetodoPago'])->middleware(['auth'])->name('profileanadirMetodoPago');
+
+Route::post('/perfil/modificarMetodoPago', [UserController::class, 'modificarMetodoPago'])->middleware(['auth'])->name('profilemodificarMetodoPago');
 
 Route::get('/perfil/miscitas',  [ReservasController::class, 'obtenerListadoCitasCliente'])->middleware(['auth'])->name('miscitas');
 

@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-		\DB::Table('clientes')->delete();
 		\DB::Table('poblacion')->delete();
 		\DB::Table('tratamientos')->delete();
         \DB::Table('reservas')->delete();
@@ -25,13 +24,17 @@ class DatabaseSeeder extends Seeder
         $this->call(ReservaTableSeeders::class);
 		\DB::Table('trabajadores')->delete();
 		\DB::Table('users')->delete();
+        \DB::Table('direcciones')->delete();
+        \DB::Table('metodos_pago')->delete();
+
 
 		$this->call(PoblacionTableSeeder::class);
-		$this->call(ClientesTableSeeder::class);
 		$this->call(TratamientosTableSeeder::class);
 		$this->call(TrabajadoresTableSeeder::class);
 		$this->call(UsersTableSeeder::class);
         $this->call(ReservaTableSeeders::class);
+        $this->call(DireccionesTableSeeder::class);
+        $this->call(MetodosPagoTableSeeder::class);
         
 
     }

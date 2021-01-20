@@ -38,7 +38,7 @@
 
 				@if (Auth::user()->rol == "admin")
 				
-				<ul class="navbar-nav mr-auto" style="margin-left:55%;">
+				<ul class="navbar-nav mr-auto" style="margin-left:35%;">
 					<li>
 					<a class="navbar-item" href="{{route('adminPanel')}}" style="padding-right:30px;">Panel de administración</a>
 					</li>
@@ -49,10 +49,10 @@
 				
 				@else
 				
-				<ul class="navbar-nav mr-auto" style="margin-left:64%">
+				<ul class="navbar-nav mr-auto" style="margin-left:60%">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					  Bienvenido, {{ Auth::user()->name }}
+					  Bienvenido, {{ Auth::user()->nombre }}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					  <a class="dropdown-item" href="{{route('profile')}}">Perfil</a>
