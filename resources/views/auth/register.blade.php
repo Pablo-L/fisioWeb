@@ -23,6 +23,7 @@
                 <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus />
             </div>
 			
+			<!-- Apellidos -->
 			<div>
                 <x-label for="apellidos" :value="__('Apellidos')" />
 
@@ -34,6 +35,13 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
+			
+			<!-- Telefono -->
+            <div class="mt-4">
+                <x-label for="telefono" :value="__('Teléfono')" />
+
+                <x-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required />
             </div>
 
             <!-- Password -->
