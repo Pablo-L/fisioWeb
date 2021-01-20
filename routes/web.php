@@ -99,6 +99,12 @@ Route::post('/perfil/anadirdireccion', [UserController::class, 'anadirDireccion'
 
 Route::post('/perfil/modificardireccion', [UserController::class, 'modificarDireccion'])->middleware(['auth'])->name('profileModificarDireccion');
 
+Route::post('/perfil/eliminarMetodoPago', [UserController::class, 'eliminarMetodoPago'])->middleware(['auth'])->name('profileliminarMetodoPago');
+
+Route::post('/perfil/anadirMetodoPago', [UserController::class, 'anadirMetodoPago'])->middleware(['auth'])->name('profileanadirMetodoPago');
+
+Route::post('/perfil/modificarMetodoPago', [UserController::class, 'modificarMetodoPago'])->middleware(['auth'])->name('profilemodificarMetodoPago');
+
 Route::get('/perfil/miscitas', function () 
 {
     return view('perfil_citas');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Direccion;
+use App\Models\MetodoPago;
 use Auth;
 use Hash;
 
@@ -50,8 +51,12 @@ class UserController extends Controller
 		$direcciones = \DB::table('direcciones')
                 ->where('user_id', '=', Auth::user()->id)
                 ->get();
+				
+		$metodospago = \DB::table('metodos_pago')
+                ->where('user_id', '=', Auth::user()->id)
+                ->get();
 		
-		return view('/perfil/perfil_home', ['direcciones' => $direcciones]);
+		return view('/perfil/perfil_home', ['direcciones' => $direcciones], ['metodospago' => $metodospago]);
 	}
 	
 	public function eliminarDireccion(Request $request)
@@ -101,6 +106,57 @@ class UserController extends Controller
 		$d->update();
 		
 		return redirect()->route('profile')->with('success','Dirección de facturación modificada.');
+	}	
+	
+	public function eliminarMetodoPago(Request $request)
+	{
+		
+		$metodoPago_id = $request->input('metodoPago_id');
+		
+		$p = MetodoPago::findOrFail($metodoPago_id);
+		
+		$p->delete();
+		
+		return redirect()->route('profile')->with('success','Metodo de pago eliminado.');
+	}
+	
+	public function anadirMetodoPago(Request $request)
+	{
+		
+		$numero_tarjeta = $request->input('numero_tarjeta');
+		$nombre_titular = $request->input('nombre_titular');
+		$fecha_caducidad = $request->input('fecha_caducidad');
+
+		$p = new MetodoPago();
+		
+		$p->numero_tarjeta = $numero_tarjeta;
+		$p->nombre_titular = $nombre_titular;
+		$p->fecha_caducidad = $fecha_caducidad;
+		
+		$p->user_id = Auth::user()->id;
+		
+		$p->save();
+		
+		return redirect()->route('profile')->with('success','Método de pago añadido.');
+	}
+	public function modificarMetodoPago(Request $request)
+	{
+		
+		$numero_tarjeta = $request->input('numero_tarjeta');
+		$nombre_titular = $request->input('nombre_titular');
+		$fecha_caducidad = $request->input('fecha_caducidad');
+		
+		$metodoPago_id = $request->input('metodoPago_id');
+
+		$p = MetodoPago::findOrFail($metodoPago_id);
+		
+		$p->numero_tarjeta = $numero_tarjeta;
+		$p->nombre_titular = $nombre_titular;
+		$p->fecha_caducidad = $fecha_caducidad;
+		
+		$p->update();
+		
+		return redirect()->route('profile')->with('success','Método de pago modificado.');
 	}
 	
 	
