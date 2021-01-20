@@ -64,6 +64,14 @@
 							</td>
 						</tr>
 						<tr>
+							<td>
+								<input type="date" name="dia" id="dia" min="{{$min}}">
+							</td>
+							<td>
+								<input type="number" name="hora" min="9" max="20">
+							</td>
+						</tr>
+						<tr>
 							<td colspan="2" style="text-align: center;">
 								<input class="btn" type="button" name="Confirmar" value="Confirmar cita">
 							</td>
@@ -74,6 +82,10 @@
 		</tr>
 	</table>
 </div>
+
+<script>
+    flatpickr('#dia')
+</script>
 
 {{-- $(".btnPilih").each(function(){
     $(this).click(function(){

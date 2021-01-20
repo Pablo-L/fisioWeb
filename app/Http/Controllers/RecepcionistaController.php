@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\Dialibre;
+use DatePeriod;
+use DateTime;
+use DateInterval;
+use Carbon\Carbon;
 
 class RecepcionistaController extends Controller
 {
@@ -12,7 +16,11 @@ class RecepcionistaController extends Controller
     	if(Auth::check() && Auth::user()->rol == "recepcionista"){
     		$usuarios = \DB::table('users')->where('rol', '=', 'user')->get();
     		$tratamientos = \DB::table('tratamientos')->get();
-    		return view('recepcionista/recepcionista_reserva', ['users' => $usuarios, 'tratamientos' => $tratamientos]);
+            $diaActual = date("Y-m-d");
+            $hoy = new DateTime('NOW');
+            $ocurrencias = 60;
+            $diasPermitidos = new DatePeriod($hoy, new DateInterval('P1D'), $ocurrencias);
+    		return view('recepcionista/recepcionista_reserva', ['users' => $usuarios, 'tratamientos' => $tratamientos, 'diasPermitidos' => $diasPermitidos, 'min' => $diaActual]);
     	}
     	else
     		return redirect('/login');
