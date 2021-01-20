@@ -91,10 +91,7 @@ Route::get('/perfil', function () {
     return view('/perfil/perfil_home');
 })->middleware(['auth'])->name('profile');
 
-Route::get('/perfil/miscitas', function () 
-{
-    return view('perfil_citas');
-})->middleware(['auth'])->name('miscitas');
+Route::get('/perfil/miscitas',  [ReservasController::class, 'obtenerListadoCitasCliente'])->middleware(['auth'])->name('miscitas');
 
 
 //Panel de recepcionista

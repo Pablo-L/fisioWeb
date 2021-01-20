@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservas;
+use Auth;
+
 class ReservasController extends Controller
 {
     public function realizarReservaForm($trabajador_id){
@@ -41,11 +43,11 @@ class ReservasController extends Controller
         return view('/Reserva', ['reservas' => $reservas]);
     } 
     //dado un id de cliente muestra el listado de citas del cliente
-    public function obtenerListadoCitasCliente($cliente_id)
+    public function obtenerListadoCitasCliente()
     {	
         $reservas = \DB::table('reservas')->select('hora','dia','trabajador_id')
-                                                ->where('cliente_id',$cliente_id)->get();
-        return view('/Reserva', ['reservas' => $reservas]);
+                                                ->where('cliente_id',Auth::user()->id)->get();
+        return view('perfil/perfil_citas', ['reservas' => $reservas]);
     }
     //dado un id de trabajador y una fecha devuelve un 'bool' que determina si el día esta libre o no
     public function comprobarDiaDisponible($trabajador_id, $dia)
