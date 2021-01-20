@@ -18,14 +18,16 @@
 			</div>
 
 			<div id="collapseOne" class="collapse show" style="background-color: #283747 ;" aria-labelledby="headingOne" data-parent="#accordion">
-			
+			<form method="POST" action="{{ route('profileEditPersonal') }}">
+            @csrf
+			@method('POST')
 				  <div class="card-body">
 					 <div class="input-group mb-3">
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Nombre y Apellidos</span>
 				  </div>
-				  <input type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Nombre" aria-describedby="basic-addon1">
-				  <input type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Apellidos" aria-describedby="basic-addon1">
+				  <input name="nameinput" id="nameinput" type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Nombre" aria-describedby="basic-addon1">
+				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Apellidos" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
@@ -34,16 +36,7 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Correo electrónico</span>
 				  </div>
-				  <input type="email" class="form-control" value="{{Auth::user()->email}}" aria-label="Correo electrónico" aria-describedby="basic-addon1">
-				     </div>
-				  </div>
-				  
-				  <div class="card-body">
-					 <div class="input-group mb-3">
-				  <div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1">Nueva contraseña</span>
-				  </div>
-				  <input type="password" class="form-control" placeholder="Introduce aquí tu nueva contraseña." aria-label="Nueva contraseña" aria-describedby="basic-addon1">
+				  <input name="emailinput" id="emailinput"  type="email" class="form-control" value="{{Auth::user()->email}}" aria-label="Correo electrónico" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
@@ -52,24 +45,34 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Contraseña actual</span>
 				  </div>
-				  <input type="password" class="form-control" placeholder="Introduce aquí tu contraseña actual." aria-label="Contraseña" aria-describedby="basic-addon1">
+				  <input name="actualpasswordinput" id="actualpasswordinput"  type="password" class="form-control" placeholder="Introduce aquí tu contraseña actual." aria-label="Contraseña" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
+				  <div class="card-body">
+					 <div class="input-group mb-3">
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon1">Nueva contraseña</span>
+				  </div>
+				  <input name="newpasswordinput" id="newpasswordinput" type="password" class="form-control" placeholder="Introduce aquí tu nueva contraseña." aria-label="Nueva contraseña" aria-describedby="basic-addon1">
+				     </div>
+				  </div>
+
 				  <div class="card-body">
 					 <div class="input-group mb-3">
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Confirmar contraseña</span>
 				  </div>
-				  <input type="password" class="form-control" placeholder="Confirma tu contraseña actual." aria-label="Confirmar Contraseña" aria-describedby="basic-addon1">
+				  <input name="confirmpasswordinput" id="confirmpasswordinput" type="password" class="form-control" placeholder="Confirma tu nueva contraseña." aria-label="Confirmar Contraseña" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
 				  <div class="card-body">
 					 <div class="input-group mb-3">
 				  <div class="input-group-prepend">
-				  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exitoModal">Guardar cambios</button></div>
+				  <button type="submit" class="btn btn-secondary" data-toggle="modal" data-target="#exitoModal">Guardar cambios</button></div>
 				  </div></div>
+				  </form>
 				  
 
 			</div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RecepcionistaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,8 @@ Route::get('adminPanel_usuarios', function()
 Route::get('/perfil', function () {
     return view('/perfil/perfil_home');
 })->middleware(['auth'])->name('profile');
+
+Route::post('/perfil', [UserController::class, 'update'])->middleware(['auth'])->name('profileEditPersonal');
 
 Route::get('/perfil/miscitas', function () 
 {
