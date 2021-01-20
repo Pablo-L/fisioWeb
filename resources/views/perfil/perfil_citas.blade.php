@@ -1,24 +1,33 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Mis citas') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    ¡Bienvenido a tu perfil de Fisioweb!
-                </div>
-            </div>
-        </div>
-    </div>
-    <ul>
-	@foreach ($reservas as $reserva)
-		<li>{{$reserva->hora}}</li>
-		<li>{{$reserva->dia}}</li>
-	@endforeach
-	</ul>
-
-</x-app-layout>
+@extends('layout')
+@section('contenido')
+<div class="container">
+<h2>Tus citas</h2>
+@if ($reservas != null && count($reservas)>0)
+<table class="table table-bordered table-striped tablehover">
+<thead>
+<tr>
+<th>Dia</th> <th>Hora</th>
+<th>Profesional</th> <th>Estado</th>
+</tr>
+</thead>
+<tbody>
+ @foreach ($reservas as $reserva)
+ <tr>
+ 
+ @if ($reserva->dia > now()->toDateString())
+ <td >{{$reserva->dia}}</td> <td >{{$reserva->hora}}</td>
+ <td >{{$reserva->trabajador_id}}</td>
+ <td>Pendiente</td>
+ @elseif ($reserva->dia == now()->toDateString())
+ <td style="background:#FC8F03;">{{$reserva->dia}}</td> <td style="background:#FC8F03;">{{$reserva->hora}}</td>
+ <td style="background:#FC8F03;">{{$reserva->trabajador_id}}</td>
+ <td style="background:#FC8F03;">Hoy</td>
+ @endif
+ </tr>
+ @endforeach
+ </tbody> </table>
+@else
+<div class="alert alert-warning">Todavía no tienes ninguna cita</div>
+</div>
+@endif
+@stop
