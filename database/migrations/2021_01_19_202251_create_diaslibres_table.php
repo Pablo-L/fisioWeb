@@ -15,7 +15,8 @@ class CreateDiaslibresTable extends Migration
     {
         Schema::create('diaslibres', function (Blueprint $table) {
             $table->id();
-            $table->dia('dia');
+            $table->date('dia');
+            $table->string('motivo');
             $table->timestamps();
         });
     }
