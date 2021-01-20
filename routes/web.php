@@ -89,11 +89,15 @@ Route::get('adminPanel_usuarios', function()
 
 //Perfil de usuario -- Perfil de usuario -- Perfil de usuario
 
-Route::get('/perfil', function () {
-    return view('/perfil/perfil_home');
-})->middleware(['auth'])->name('profile');
+Route::get('/perfil', [UserController::class, 'show'])->middleware(['auth'])->name('profile');
 
 Route::post('/perfil', [UserController::class, 'update'])->middleware(['auth'])->name('profileEditPersonal');
+
+Route::post('/perfil/eliminardireccion', [UserController::class, 'eliminarDireccion'])->middleware(['auth'])->name('profileEliminarDireccion');
+
+Route::post('/perfil/anadirdireccion', [UserController::class, 'anadirDireccion'])->middleware(['auth'])->name('profileAnadirDireccion');
+
+Route::post('/perfil/modificardireccion', [UserController::class, 'modificarDireccion'])->middleware(['auth'])->name('profileModificarDireccion');
 
 Route::get('/perfil/miscitas', function () 
 {
