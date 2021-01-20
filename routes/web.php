@@ -100,5 +100,6 @@ route::get('recepcionista_citas', [RecepcionistaController::class, 'obtenerClien
 route::get('recepcionista_libres', [RecepcionistaController::class, 'obtenerLibres'])->middleware(['auth']);
 route::post('recepcionista_reserva', [RecepcionistaController::class, 'reservar'])->middleware(['auth'])->name('recepcionista_reserva');
 route::post('recepcionista_diaLibre', [RecepcionistaController::class, 'diaLibre'])->middleware(['auth'])->name('recepcionista_diaLibre');
+route::post('recepcionista_eliminarDia', [RecepcionistaController::class, 'eliminarDia'])->middleware(['auth'])->name('recepcionista_eliminarDia');
 
 require __DIR__.'/auth.php';

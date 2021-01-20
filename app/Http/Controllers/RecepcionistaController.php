@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
-use App\Models\DiaLibre;
+use App\Models\Dialibre;
 
 class RecepcionistaController extends Controller
 {
@@ -20,7 +20,7 @@ class RecepcionistaController extends Controller
 
     public function obtenerLibres(){
     	if(Auth::check() && Auth::user()->rol == "recepcionista"){
-            $dias = \DB::table('diaslibres')->get();
+            $dias = \DB::table('diaslibres')->orderBy('dia', 'ASC')->get();
     		return view('recepcionista/recepcionista_libres', ['dias' => $dias]);
     	}
     	else
@@ -35,11 +35,22 @@ class RecepcionistaController extends Controller
             return redirect('/login');
     }
 
-    public function diaLibre($dia, $motivo){
+    public function diaLibre(Request $request){
         if(Auth::check() && Auth::user()->rol == "recepcionista"){
             //Añadir un nuevo dia libre
-            //$diaLibre = DiaLibre::create(['dia' => $dia, 'motivo' => $motivo]);
-            return true;
+            $diaLibre = Dialibre::create(['dia' => $request->dia, 'motivo' => $request->motivo]);
+            $diaLibre->save();
+            return redirect('recepcionista_libres');
+        }
+        else
+            return redirect('/login');
+    }
+
+    public function eliminarDia(Request $request){
+        if(Auth::check() && Auth::user()->rol == "recepcionista"){
+            $diaEliminar = \DB::table('diaslibres')->where('id', '=', $request->id);
+            $diaEliminar->delete();
+            return redirect('/recepcionista_libres');
         }
         else
             return redirect('/login');

@@ -17,13 +17,20 @@
 					<tr>
 						<td>{{$dia->dia}}</td>
 						<td>{{$dia->motivo}}</td>
-						<td><input class="btn" type="button" name="DeleteDia" value="Eliminar"></td>
+						<form method="POST" action="{{ route('recepcionista_eliminarDia') }}">
+							@csrf
+							<input type="hidden" name="id" value="{{$dia->id}}">
+							<td>
+								<input class="btn" type="submit" name="DeleteDia" value="Eliminar">
+							</td>
+						</form>
 					</tr>
 					@endforeach
 				</table>
 			</td>
 			<td>
 				<form method="POST" action="{{ route('recepcionista_diaLibre') }}">
+					@csrf
 					<table>
 						<th>Nuevo dia libre</th>
 						<tr>
@@ -39,12 +46,12 @@
 								<input type="date" name="dia">
 							</td>
 							<td style="vertical-align: top;">
-								<input type="" name="motivo">
+								<input type="text" name="motivo">
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align: center;">
-								<input class="btn" type="button" name="AddDay" value="Añadir día">
+								<input class="btn" type="submit" name="AddDay" value="Añadir día">
 							</td>
 						</tr>
 					</table>
