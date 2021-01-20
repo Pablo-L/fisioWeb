@@ -1,5 +1,12 @@
 @extends ('layout')
+<?php
+    use App\Http\Controllers\ReservasController;
 
+    $controlador = new ReservasController();
+
+    $arrayLibres = $controlador->obtenerDiasLibres();
+    $arrayDias = $controlador->obtenerDiasSemana();
+?>
 @section('contenido')
 <x-guest-layout>
     <x-auth-card>
@@ -18,13 +25,22 @@
         <form id="reservaForm" name="reservaForm">
             @csrf
 
-            <!-- Email Address -->
-            <div>
+            <!-- Días -->
+            <div class="mt-4">
                 <x-label for="dia" :value="__('Dia')" />
-                <x-input id="dia" class="block mt-1 w-full" type="date" name="dia" :value="old('dia')" required autofocus />
+                <!--<x-input id="dia" class="block mt-1 w-full" type="date" name="dia" :value="old('dia')" required autofocus />-->
+                <select>
+                @foreach($arrayDias as $dia)
+                    @if( in_array($dia, $arrayLibres) )
+                    <option><del>{{$dia}}</del></option>
+                    @else
+                    <option>{{$dia}}</option>
+                    @endif
+                @endforeach
+                </ul>
             </div>
 
-            <!-- Password -->
+            <!-- Hora -->
             <div class="mt-4">
                 <x-label for="hora" :value="__('Hora')" />
                 <x-input id="hora" class="block mt-1 w-full" type="time" name="hora" :value="old('hora')" required autofocus />
