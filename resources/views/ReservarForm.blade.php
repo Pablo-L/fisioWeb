@@ -32,7 +32,7 @@
                 <select>
                 @foreach($arrayDias as $dia)
                     @if( in_array($dia, $arrayLibres) )
-                    <option><del>{{$dia}}</del></option>
+                    <option style="color:red">{{$dia}}</option>
                     @else
                     <option>{{$dia}}</option>
                     @endif
