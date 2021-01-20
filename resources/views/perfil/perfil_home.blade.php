@@ -46,9 +46,9 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Nombre</span>
 				  </div>
-				  <input name="nameinput" id="nameinput" type="text" class="form-control" value="{{Auth::user()->nombre}}" aria-label="Nombre" aria-describedby="basic-addon1">
+				  <input name="nameinput" id="nameinput" type="text" class="form-control" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre sólo puede contener letras" value="{{Auth::user()->nombre}}" aria-label="Nombre" aria-describedby="basic-addon1" required>
 				  <span class="input-group-text" id="basic-addon2">Apellidos</span>
-				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" value="{{Auth::user()->apellidos}}" aria-label="Apellidos" aria-describedby="basic-addon2">
+				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="Los apellidos sólo pueden contener letras" value="{{Auth::user()->apellidos}}" aria-label="Apellidos" aria-describedby="basic-addon2" required>
 				     </div>
 				  </div>
 				  
@@ -57,7 +57,7 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Correo electrónico</span>
 				  </div>
-				  <input name="emailinput" id="emailinput"  type="email" class="form-control" value="{{Auth::user()->email}}" aria-label="Correo electrónico" aria-describedby="basic-addon1">
+				  <input name="emailinput" id="emailinput"  type="email" class="form-control" value="{{Auth::user()->email}}" aria-label="Correo electrónico" aria-describedby="basic-addon1" required>
 				     </div>
 				  </div>
 				  
@@ -75,9 +75,9 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Nueva contraseña</span>
 				  </div>
-				  <input name="newpasswordinput" id="newpasswordinput" type="password" class="form-control" placeholder="Introduce aquí tu nueva contraseña." aria-label="Nueva contraseña" aria-describedby="basic-addon1">
+				  <input name="newpasswordinput" id="newpasswordinput" type="password" class="form-control" pattern=".{8,}" title="La contraseña debe de contener al menos ocho caracteres" placeholder="Introduce aquí tu nueva contraseña." aria-label="Nueva contraseña" aria-describedby="basic-addon1">
 				  <span class="input-group-text" id="basic-addon1">Confirmar contraseña</span>
-				  <input name="confirmpasswordinput" id="confirmpasswordinput" type="password" class="form-control" placeholder="Confirma tu nueva contraseña." aria-label="Confirmar Contraseña" aria-describedby="basic-addon1">
+				  <input name="confirmpasswordinput" id="confirmpasswordinput" type="password" class="form-control" pattern=".{8,}" title="La contraseña debe de contener al menos ocho caracteres" placeholder="Confirma tu nueva contraseña." aria-label="Confirmar Contraseña" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
@@ -148,18 +148,18 @@
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Provincia</span>
 									  </div>
-									  <input type="text" name="provincia" value="{{$direccion->provincia}}" id="provincia" class="form-control">
+									  <input type="text" name="provincia" value="{{$direccion->provincia}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La provincia sólo puede contener letras" id="provincia" class="form-control" required>
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Ciudad</span>
 									  </div
 									</div>
-									<input type="text" name="ciudad" value="{{$direccion->ciudad}}" id="ciudad" class="form-control">
+									<input type="text" name="ciudad" value="{{$direccion->ciudad}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La ciudad sólo puede contener letras" id="ciudad" class="form-control" required>
 								  </div>
 								  <div class="input-group">
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Dirección</span>
 									  </div>
-									<input type="text" name="direccion" value="{{$direccion->direccion}}" id="direccion" class="form-control">
+									<input type="text" name="direccion" value="{{$direccion->direccion}}" id="direccion" class="form-control" required>
 									<input type="hidden" name="idDireccion" value="{{$direccion->id}}">
 								  </div>
 								  <div class="modal-footer">
@@ -224,18 +224,18 @@
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Provincia</span>
 						  </div>
-						  <input type="text" name="provincia" id="provincia" class="form-control">
+						  <input type="text" name="provincia" id="provincia" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La provincia sólo puede contener letras" class="form-control" required>
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Ciudad</span>
 						  </div
 						</div>
-						<input type="text" name="ciudad" id="ciudad" class="form-control">
+						<input type="text" name="ciudad" id="ciudad" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La ciudad sólo puede contener letras" class="form-control" required>
 					  </div>
 					  <div class="input-group">
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Dirección</span>
 						  </div>
-						<input type="text" name="direccion" id="direccion" class="form-control">
+						<input type="text" name="direccion" id="direccion" class="form-control" required>
 					  </div>
 					  <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -306,20 +306,20 @@
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Nº Tarjeta</span>
 									  </div>
-									  <input type="text" name="numero_tarjeta" value="{{$metodopago->numero_tarjeta}}" id="numero_tarjeta" class="form-control">
+									  <input type="text" name="numero_tarjeta" value="{{$metodopago->numero_tarjeta}}" pattern="^[0-9_]+( [0-9_]+)*$" title="El nº tarjeta sólo puede contener números" id="numero_tarjeta" class="form-control" required>
 									</div>
 									<div class="input-group">
 								  	<div class="input-group-prepend">
 										<span class="input-group-text" id="">Nombre del titular</span>
 									  </div>
-									  <input type="text" name="nombre_titular" value="{{$metodopago->nombre_titular}}" id="nombre_titular" class="form-control">
+									  <input type="text" name="nombre_titular" value="{{$metodopago->nombre_titular}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
 									</div>
 									
 									<div class="input-group">
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Fecha de caducidad</span>
 									  </div>
-									<input type="date" name="fecha_caducidad" value="{{$metodopago->fecha_caducidad}}" id="fecha_caducidad" class="form-control">
+									<input type="date" name="fecha_caducidad" value="{{$metodopago->fecha_caducidad}}" id="fecha_caducidad" class="form-control" required>
 									<input type="hidden" name="metodoPago_id" value="{{$metodopago->id}}">
 								  </div>
 									
@@ -387,20 +387,20 @@
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Nº Tarjeta</span>
 						  </div>
-						  <input type="text" name="numero_tarjeta" id="numero_tarjeta" class="form-control">
+						  <input type="text" name="numero_tarjeta" id="numero_tarjeta" pattern="^[0-9_]+( [0-9_]+)*$" title="El nº tarjeta sólo puede contener números" class="form-control" required>
 					  </div>
 					  <div class="input-group">
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Nombre del titular</span>
 						  </div
 						</div>
-						<input type="text" name="nombre_titular" id="nombre_titular" class="form-control">
+						<input type="text" name="nombre_titular" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
 					  </div>
 					  <div class="input-group">
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Fecha de caducidad</span>
 						  </div>
-						<input type="date" name="fecha_caducidad" id="fecha_caducidad" class="form-control">
+						<input type="date" name="fecha_caducidad" id="fecha_caducidad" class="form-control" required>
 					  </div>
 					  <div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
