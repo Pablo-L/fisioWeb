@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
     {
         \DB::Table('users')->delete();
 		
-        $user = new User(['name' => 'Admin Administrador Administra','email' => 'fisioweb@admin.com', 'password' => Hash::make('testtest'), 
+        $user = new User(['nombre' => 'Admin', 'apellidos' => 'Administrador', 'email' => 'fisioweb@admin.com', 'password' => Hash::make('testtest'), 
 		'rol' => 'admin']);
         $user->save();
-        $user = new User(['name' => 'Recepcionista','email' => 'fisioweb@recepcionista.com', 'password' => Hash::make('testtest'), 
+        $user = new User(['nombre' => 'Recepcionista', 'apellidos' => 'Recepto','email' => 'fisioweb@recepcionista.com', 'password' => Hash::make('testtest'), 
         'rol' => 'recepcionista']);
         $user->save();
     }

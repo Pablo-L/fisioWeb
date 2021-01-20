@@ -12,6 +12,7 @@ class UserController extends Controller
     public function update(Request $request)
 	{
 		$nombre = $request->input('nameinput');
+		$apellidos = $request->input('apellidosinput');
 		$email = $request->input('emailinput');
 		$nuevacontrasenya = $request->input('newpasswordinput');
 		$contrasenya = $request->input('actualpasswordinput');
@@ -19,20 +20,23 @@ class UserController extends Controller
 
 		$u = User::findorFail(Auth::user()->id);
 		
-		$u->name = $nombre;
+		$u->nombre = $nombre;
+		$u->apellidos =$apellidos;
 		$u->email = $email;
 		
 		if($nuevacontrasenya != NULL)
 		{
-			if($nuevacontrasenya == $confirmacontrasenya && (Hash::check($contrasenya, Auth::user()->password)))
-			{
+			if($nuevacontrasenya == $confirmacontrasenya)
+			{	
+				if(Hash::check($contrasenya, Auth::user()->password))
 				$u->password = Hash::make($nuevacontrasenya);
+				
+				else
+				return redirect()->route('profile')->with('error','La contraseña actual no es correcta.');
 			}
 			
 			else
-			{
-				return redirect()->route('profile')->with('error','Las contraseñas no son correctas o no coinciden.');
-			}
+				return redirect()->route('profile')->with('error','Las contraseñas no coinciden.');
 		}
 		
 		$u->save();
