@@ -12,6 +12,7 @@ class UserController extends Controller
     public function update(Request $request)
 	{
 		$nombre = $request->input('nameinput');
+		$apellidos = $request->input('apellidosinput');
 		$email = $request->input('emailinput');
 		$nuevacontrasenya = $request->input('newpasswordinput');
 		$contrasenya = $request->input('actualpasswordinput');
@@ -19,7 +20,8 @@ class UserController extends Controller
 
 		$u = User::findorFail(Auth::user()->id);
 		
-		$u->name = $nombre;
+		$u->nombre = $nombre;
+		$u->apellidos =$apellidos;
 		$u->email = $email;
 		
 		if($nuevacontrasenya != NULL)

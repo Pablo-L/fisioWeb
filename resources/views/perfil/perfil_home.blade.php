@@ -4,7 +4,7 @@
 
 
 	<div class="jumbotron" style="background-color:#85929e; border-top: 1px solid #000; border-bottom: 1px solid #000;">
-	  <h1 class="display-4">¡Bienvenido a tu perfil de Fisioweb, {{ Auth::user()->name }}!</h1>
+	  <h1 class="display-4">¡Bienvenido a tu perfil de Fisioweb, {{ Auth::user()->nombre }}!</h1>
 	  <p class="lead">Aquí puedes revisar tus datos, métodos de págo, citas pendientes, etcétera.</p>
 	  <hr class="my-4">
 	  
@@ -46,8 +46,8 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Nombre y Apellidos</span>
 				  </div>
-				  <input name="nameinput" id="nameinput" type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Nombre" aria-describedby="basic-addon1">
-				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" value="{{Auth::user()->name}}" aria-label="Apellidos" aria-describedby="basic-addon1">
+				  <input name="nameinput" id="nameinput" type="text" class="form-control" value="{{Auth::user()->nombre}}" aria-label="Nombre" aria-describedby="basic-addon1">
+				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" value="{{Auth::user()->apellidos}}" aria-label="Apellidos" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
 				  
@@ -75,14 +75,7 @@
 					<span class="input-group-text" id="basic-addon1">Nueva contraseña</span>
 				  </div>
 				  <input name="newpasswordinput" id="newpasswordinput" type="password" class="form-control" placeholder="Introduce aquí tu nueva contraseña." aria-label="Nueva contraseña" aria-describedby="basic-addon1">
-				     </div>
-				  </div>
-
-				  <div class="card-body">
-					 <div class="input-group mb-3">
-				  <div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon1">Confirmar contraseña</span>
-				  </div>
+				  <span class="input-group-text" id="basic-addon1">Confirmar contraseña</span>
 				  <input name="confirmpasswordinput" id="confirmpasswordinput" type="password" class="form-control" placeholder="Confirma tu nueva contraseña." aria-label="Confirmar Contraseña" aria-describedby="basic-addon1">
 				     </div>
 				  </div>
