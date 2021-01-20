@@ -5,6 +5,8 @@ use App\Http\Controllers\TratamientosController;
 use App\Http\Controllers\TrabajadoresController;
 use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RecepcionistaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
