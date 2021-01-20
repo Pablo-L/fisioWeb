@@ -8,33 +8,60 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+	public function isAdmin()
+	{
+		if(Auth::check() && Auth::user()->rol == "admin")
+		{}
+		else
+			return redirect('/login');
+	}
+	
+	public function show()
+	{
+		if(Auth::check() && Auth::user()->rol == "admin")
+			return view('admin/adminpanel_home');
+		else
+			return redirect('/login');
+	}
+	
     public function obtenerdatosTratamientos()
     {	
-        if(Auth::check() && Auth::user()->rol == "admin")
-		{
+		self::isAdmin();
+        
 		$tratamientos = \DB::table('tratamientos')->get();
+		
+		$categorias = \DB::table('tratamientos')->select('categoria')->distinct()->pluck('categoria');
+			
+		return view('admin/adminpanel_tratamientos', ['tratamientos' => $tratamientos, 'categorias' => $categorias]);
+	}    
+	
+	public function obtenerdatosTrabajadores()
+    {	
+		self::isAdmin();
+        
+		$trabajadores = \DB::table('trabajadores')->get();
 			
 			
-		return view('admin/adminpanel_tratamientos', ['tratamientos' => $tratamientos]);
-		}
-
-		else
-		return redirect('/login');
-    }    
+		return view('admin/adminpanel_trabajadores', ['trabajadores' => $trabajadores]);
+	}	
 	
-	public function obtenerTratamientosAcupuntura()
+	public function obtenerCitas()
     {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Acupuntura')
-                ->get();
-        return view('static/Acupuntura', ['tratamientos' => $tratamientos]);
-    }	
+		self::isAdmin();
+        
+		$citas = \DB::table('reservas')->get();
+			
+			
+		return view('admin/adminpanel_citas', ['citas' => $citas]);
+	}	
 	
-	public function obtenerTratamientosOsteopatia()
+	public function obtenerUsuarios()
     {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Osteopatia')
-                ->get();
-        return view('static/Osteopatia', ['tratamientos' => $tratamientos]);
-    }
+		self::isAdmin();
+        
+		$users = \DB::table('users')->get();
+			
+			
+		return view('admin/adminpanel_usuarios', ['users' => $users]);
+	}
 }

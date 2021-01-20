@@ -14,4 +14,9 @@ class Tratamientos extends Model
 	public $incrementing = true;
 	public $timestamps = false;
 	protected $fillable = ['categoria', 'nombre', 'descripcion', 'tarifa'];
+	
+	public function _categoria()
+	{
+		return $this->hasOne("App\Categorias");
+	}
 }
