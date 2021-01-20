@@ -38,7 +38,6 @@ Route::get('/reservaConfirmacion', function() {return view('static/reservaConfir
 
 
 
-
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
 Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
@@ -105,10 +104,7 @@ Route::post('/perfil/anadirMetodoPago', [UserController::class, 'anadirMetodoPag
 
 Route::post('/perfil/modificarMetodoPago', [UserController::class, 'modificarMetodoPago'])->middleware(['auth'])->name('profilemodificarMetodoPago');
 
-Route::get('/perfil/miscitas', function () 
-{
-    return view('perfil_citas');
-})->middleware(['auth'])->name('miscitas');
+Route::get('/perfil/miscitas',  [ReservasController::class, 'obtenerListadoCitasCliente'])->middleware(['auth'])->name('miscitas');
 
 
 //Panel de recepcionista

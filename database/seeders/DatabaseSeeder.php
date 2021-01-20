@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
     {
 		\DB::Table('poblacion')->delete();
 		\DB::Table('tratamientos')->delete();
+        \DB::Table('reservas')->delete();
 		\DB::Table('trabajadores')->delete();
 		\DB::Table('users')->delete();
-        \DB::Table('reservas')->delete();
         \DB::Table('direcciones')->delete();
         \DB::Table('metodos_pago')->delete();
+
 
 		$this->call(PoblacionTableSeeder::class);
 		$this->call(TratamientosTableSeeder::class);
@@ -29,6 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DireccionesTableSeeder::class);
         $this->call(MetodosPagoTableSeeder::class);
         
-        // \App\Models\User::factory(10)->create();
+
     }
 }
