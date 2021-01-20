@@ -12,7 +12,7 @@ class TratamientosController extends Controller
         $tratamientos = \DB::table('tratamientos')
                 ->where('categoria', '=', 'Fisioterapia')
                 ->get();
-        return view('static/Fisioterapia', ['tratamientos' => $tratamientos]);
+        return view('Fisioterapia', ['tratamientos' => $tratamientos]);
     }    
 	
 	public function obtenerTratamientosAcupuntura()
@@ -20,7 +20,7 @@ class TratamientosController extends Controller
         $tratamientos = \DB::table('tratamientos')
                 ->where('categoria', '=', 'Acupuntura')
                 ->get();
-        return view('static/Acupuntura', ['tratamientos' => $tratamientos]);
+        return view('Acupuntura', ['tratamientos' => $tratamientos]);
     }	
 	
 	public function obtenerTratamientosOsteopatia()
@@ -28,6 +28,6 @@ class TratamientosController extends Controller
         $tratamientos = \DB::table('tratamientos')
                 ->where('categoria', '=', 'Osteopatia')
                 ->get();
-        return view('static/Osteopatia', ['tratamientos' => $tratamientos]);
+        return view('Osteopatia', ['tratamientos' => $tratamientos]);
     }
 }

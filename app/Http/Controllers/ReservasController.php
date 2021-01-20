@@ -21,7 +21,7 @@ class ReservasController extends Controller
 
         return redirect('/reservaConfirmacion');
     }
-
+    
     //dado un id de trabajador realiza una reserva de tiempo ocupado
     public function realizarReservaTiempo($hora, $dia, $id_trabajador)
     {	
