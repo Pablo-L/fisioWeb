@@ -62,7 +62,7 @@
 							</td>
 							<td style="vertical-align: top;">
 								<input type="hidden" name="idTratamiento" id="idTratamiento">
-								<input type="text" name="tratamiento" id="nombreTratamiento" disabled>
+								<input type="text" name="tratamiento" id="nombreTratamiento">
 							</td>
 						</tr>
 						<tr>
@@ -84,6 +84,13 @@
 		</tr>
 	</table>
 </div>
+
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Cita asignada correctamente</strong> {{ Session::get('message', '') }}
+    </div>
+@endif
 
 <script>
 	function usuario(valor, valor2){

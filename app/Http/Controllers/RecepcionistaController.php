@@ -9,6 +9,7 @@ use DatePeriod;
 use DateTime;
 use DateInterval;
 use Carbon\Carbon;
+use App\Models\Reservas;
 
 class RecepcionistaController extends Controller
 {
