@@ -6,7 +6,7 @@
 @if(Session::has('success'))
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>Cita asignada correctamente</strong> {{ Session::get('message', '') }}
+        {{ Session::get('message', '') }}
     </div>
 @endif
 
@@ -79,29 +79,29 @@
 						</tr>
 						<tr>
 							<td style="vertical-align: top;">
-								<input type="hidden" name="idUser" id="idUser">
-								<input type="text" name="user" id="emailUsuario" disabled>
+								<input type="hidden" name="idUser" id="idUser" required>
+								<input type="text" name="user" id="emailUsuario" required>
 							</td>
 							<td style="vertical-align: top;">
-								<input type="hidden" name="idTrabajador" id="idTrabajador">
-								<input type="text" name="trabajador" id="nombreTrabajador" disabled>
+								<input type="hidden" name="idTrabajador" id="idTrabajador" required>
+								<input type="text" name="trabajador" id="nombreTrabajador" required>
 							</td>
 							<td style="vertical-align: top;">
-								<input type="hidden" name="idTratamiento" id="idTratamiento">
-								<input type="text" name="tratamiento" id="nombreTratamiento" disabled>
+								<input type="hidden" name="idTratamiento" id="idTratamiento" required>
+								<input type="text" name="tratamiento" id="nombreTratamiento" required>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="date" name="dia" id="dia" min="{{$min}}">
+								<input type="date" name="dia" id="dia" min="{{$min}}" required>
 							</td>
 							<td>
-								<input type="time" name="hora" min="9" max="20">
+								<input type="time" name="hora" id="hora" required>
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align: center;">
-								<input class="btn" type="submit" name="Confirmar" value="Confirmar cita">
+								<input class="btn" type="submit" name="Confirmar" value="Confirmar cita" required>
 							</td>
 						</tr>
 					</table>
