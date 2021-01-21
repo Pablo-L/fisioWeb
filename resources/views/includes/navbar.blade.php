@@ -1,8 +1,8 @@
 		<!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR --><!-- NAVBAR -->
 	
 		
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-		  <a class="navbar-brand" href="{{route('inicio')}}">Clínicas Fisioweb</a>
+		<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile'; border-bottom:1px solid #000">
+		  <a class="navbar-brand" style="color:white" href="{{route('inicio')}}">Clínicas Fisioweb</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -10,10 +10,10 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item">
-				<a class="nav-link" href="{{route('inicio')}}">Inicio</a>
+				<a class="nav-link" style="color:white" href="{{route('inicio')}}">Inicio</a>
 			  </li>
 			  <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" style="color:white" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  Tratamientos
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -23,13 +23,7 @@
 				</div>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" href="{{route('infoProfesionales')}}">Profesionales</a>
-			  </li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="{{route('infoTarifas')}}">Tarifas</a>
-			  </li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="/Reserva">Reservar cita</a>
+			  <a class="nav-link" style="color:white" href="{{route('infoProfesionales')}}">Profesionales</a>
 			  </li>
 			</ul>
 			
@@ -51,7 +45,7 @@
 				
 				<ul class="navbar-nav mr-auto" style="margin-left:60%">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" style="color:white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					  Bienvenido, {{ Auth::user()->nombre }}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -66,12 +60,12 @@
 			@endauth
 
 			@guest <!-- Esta parte solo para visitantes -->
-			<ul class="navbar-nav mr-auto" style="margin-left:60%">
+			<ul class="navbar-nav mr-auto" style="margin-left:70%">
 			<li class="nav-item">
-				<a class="nav-link" href="{{route('login')}}">Iniciar sesión</a>
+				<a class="nav-link" style="color:white" href="{{route('login')}}">Iniciar sesión</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{{route('register')}}">Registrarse</a>
+				<a class="nav-link" style="color:white" href="{{route('register')}}">Registrarse</a>
 			</li>
 			<li>
 			</ul>
