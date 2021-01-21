@@ -2,7 +2,7 @@
 
 @section ('contenido')
 
-<div class="responsive-table" style="background-color: #a7c5ed;">
+<div class="responsive-table" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; color:white; font-family:'Nobile';">
 	<table class="table">
 		<tr>
 			<td>
