@@ -20,9 +20,13 @@ class ReservasController extends Controller
             'dia' => $request->dia,
             'trabajador_id' => $request->trabajador_id,
             'cliente_id' => $request->cliente_id,
+            'tratamiento_id' =>$request->tratamiento_id
         ]);
+        $reservas->save();
 
-        return redirect('/reservaConfirmacion');
+        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa')
+            ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
+        return view('perfil/perfil_citas', ['reservas' => $reservas])->with('success', true)->with('message','La cita se ha añadido correctamente');
     }
     
     //dado un id de trabajador realiza una reserva de tiempo ocupado
@@ -46,8 +50,8 @@ class ReservasController extends Controller
     //dado un id de cliente muestra el listado de citas del cliente
     public function obtenerListadoCitasCliente()
     {	
-        $reservas = \DB::table('reservas')->select('hora','dia','trabajador_id')
-                                                ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
+        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa')
+            ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
         return view('perfil/perfil_citas', ['reservas' => $reservas]);
     }
     //dado un id de trabajador y una fecha devuelve un 'bool' que determina si el día esta libre o no
