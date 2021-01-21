@@ -6,18 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\Reservas;
 class ReservasController extends Controller
 {
-    //dado un id de cliente y uno de trabajador realiza una reserva
-    public function realizarReservaCita($hora, $dia, $id_trabajador, $cliente_id)
-    {	
-        $reservas =  Reservas::create([
-                                        'hora' => $hora,
-                                        'dia' => $dia,
-                                        'trabajador_id' => $id_trabajador,
-                                        'cliente_id' => $cliente_id,
-                                      ]);
-        return true;
+    public function realizarReservaForm($trabajador_id){
+        return view('/ReservarForm', ['trabajador_id' => $trabajador_id]);
     } 
+    //dado un id de cliente y uno de trabajador realiza una reserva
+    public function realizarReservaCita(Request $request)
+    {
+        $reservas = Reservas::create([
+            'hora' => $request->hora,
+            'dia' => $request->dia,
+            'trabajador_id' => $request->trabajador_id,
+            'cliente_id' => $request->cliente_id,
+        ]);
 
+        return redirect('/reservaConfirmacion');
+    }
+    
     //dado un id de trabajador realiza una reserva de tiempo ocupado
     public function realizarReservaTiempo($hora, $dia, $id_trabajador)
     {	
@@ -68,4 +72,6 @@ class ReservasController extends Controller
             return 1;
         }       
     }
+
+    //cancelar reserva
 }
