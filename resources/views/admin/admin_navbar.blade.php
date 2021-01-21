@@ -10,16 +10,16 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item">
-				<a class="nav-link" style="border-right: 1px solid #000; border-left: 1px solid #000;" href="adminPanel_tratamientos">Tratamientos</a>
+				<a class="nav-link" style="border-right: 1px solid #000; border-left: 1px solid #000;" href="{{route('admin_tratamientos')}}">Tratamientos</a>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" style="border-right: 1px solid #000;" href="adminPanel_profesionales">Profesionales</a>
+			  <a class="nav-link" style="border-right: 1px solid #000;" href="{{route('admin_trabajadores')}}">Trabajadores</a>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" style="border-right: 1px solid #000;" href="adminPanel_citas">Citas</a>
+			  <a class="nav-link" style="border-right: 1px solid #000;" href="{{route('admin_citas')}}">Citas</a>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" style="border-right: 3px solid #000;" href="adminPanel_usuarios">Usuarios</a>
+			  <a class="nav-link" style="border-right: 3px solid #000;" href="{{route('admin_users')}}">Usuarios</a>
 			  </li>
 			  <li class="nav-item">
 			  <a class="nav-link" style="border-right: 3px solid #000;" href="/logout">Cerrar sesión</a>

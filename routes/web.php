@@ -7,6 +7,7 @@ use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,43 +46,20 @@ Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoli
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
-Route::get('/adminPanel', function() 
-{
-	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminpanel_home');
+Route::get('/adminPanel', [AdminController::class, 'show'])->middleware(['auth'])->name('adminPanel');
 
-	else
-	return redirect('/login');
-})->middleware(['auth'])->name('adminPanel');
+Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth'])->name('admin_tratamientos');
+Route::post('adminPanel_tratamientos', [TratamientosController::class, 'update'])->middleware(['auth'])->name('admin_tratamientos_update');
+Route::post('adminPanel_tratamientos/borrar', [TratamientosController::class, 'delete'])->middleware(['auth'])->name('admin_tratamientos_delete');
+Route::post('adminPanel_tratamientos/create', [TratamientosController::class, 'create'])->middleware(['auth'])->name('admin_tratamientos_create');
+Route::post('adminPanel_tratamientos/createcategoria', [CategoriasController::class, 'create'])->middleware(['auth'])->name('admin_categoria_create');
+Route::post('adminPanel_tratamientos/borrarcategoria', [CategoriasController::class, 'delete'])->middleware(['auth'])->name('admin_categoria_delete');
 
-Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth']);
+Route::get('adminPanel_trabajadores', [AdminController::class, 'obtenerdatosTrabajadores'])->middleware(['auth'])->name('admin_trabajadores');
 
-Route::get('adminPanel_profesionales', function() 
-{
-	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminpanel_profesionales');
+Route::get('adminPanel_citas', [AdminController::class, 'obtenerCitas'])->middleware(['auth'])->name('admin_citas');
 
-	else
-	return redirect('/login');
-})->middleware(['auth']);
-
-Route::get('adminPanel_citas', function() 
-{
-	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminpanel_citas');
-
-	else
-	return redirect('/login');
-})->middleware(['auth']);
-
-Route::get('adminPanel_usuarios', function() 
-{
-	if(Auth::check() && Auth::user()->rol == "admin")
-	return view('admin/adminpanel_usuarios');
-
-	else
-	return redirect('/login');
-})->middleware(['auth']);
+Route::get('adminPanel_usuarios', [AdminController::class, 'obtenerUsuarios'])->middleware(['auth'])->name('admin_users');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion

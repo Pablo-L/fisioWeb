@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
 		\DB::Table('poblacion')->delete();
 		\DB::Table('tratamientos')->delete();
+		\DB::Table('categorias')->delete();
         \DB::Table('reservas')->delete();
 		\DB::Table('trabajadores')->delete();
 		\DB::Table('users')->delete();
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
 
 		$this->call(PoblacionTableSeeder::class);
+		$this->call(CategoriasTableSeeder::class);
 		$this->call(TratamientosTableSeeder::class);
 		$this->call(TrabajadoresTableSeeder::class);
 		$this->call(UsersTableSeeder::class);

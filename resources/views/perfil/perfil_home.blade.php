@@ -46,9 +46,9 @@
 				  <div class="input-group-prepend">
 					<span class="input-group-text" id="basic-addon1">Nombre</span>
 				  </div>
-				  <input name="nameinput" id="nameinput" type="text" class="form-control" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre sólo puede contener letras" value="{{Auth::user()->nombre}}" aria-label="Nombre" aria-describedby="basic-addon1" required>
+				  <input name="nameinput" id="nameinput" type="text" class="form-control" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="El nombre sólo puede contener letras" value="{{Auth::user()->nombre}}" aria-label="Nombre" aria-describedby="basic-addon1" required>
 				  <span class="input-group-text" id="basic-addon2">Apellidos</span>
-				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="Los apellidos sólo pueden contener letras" value="{{Auth::user()->apellidos}}" aria-label="Apellidos" aria-describedby="basic-addon2" required>
+				  <input name="apellidosinput" id="apellidosinput" type="text" class="form-control" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Los apellidos sólo pueden contener letras" value="{{Auth::user()->apellidos}}" aria-label="Apellidos" aria-describedby="basic-addon2" required>
 				     </div>
 				  </div>
 				  
@@ -58,7 +58,40 @@
 					<span class="input-group-text" id="basic-addon1">Correo electrónico</span>
 				  </div>
 				  <input name="emailinput" id="emailinput"  type="email" class="form-control" value="{{Auth::user()->email}}" aria-label="Correo electrónico" aria-describedby="basic-addon1" required>
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon1">Teléfono</span>
+				  </div>
+				  <input name="telefonoinput" id="telefonoinput"  type="text" class="form-control" pattern=".{9,9}" title="El teléfono debe de ser un número español válido" value="{{Auth::user()->telefono}}" aria-label="Telefono" aria-describedby="basic-addon1">
 				     </div>
+				  </div>
+				  
+				  <div class="card-body">
+				  <div class="input-group mb-3">
+				  <div class="input-group-prepend" style="margin-right:30px;">
+					<span class="input-group-text" id="basic-addon1">Sexo</span>
+				  </div>
+				  
+				  @if(Auth::user()->sexo == "M")
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="sexoinput" id="sexoMujer" value="M" checked>
+							  <label class="form-check-label" style="color:white" for="sexoMujer">Mujer</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="sexoinput" id="sexoHombre" value="H">
+							  <label class="form-check-label" style="color:white" for="sexoHombre">Hombre</label>
+							</div>
+						@else
+
+						 <div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="sexoinput" id="sexoMujer" value="M">
+							  <label class="form-check-label" style="color:white" for="sexoMujer">Mujer</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="sexoinput" id="sexoHombre" value="H" checked>
+							  <label class="form-check-label" style="color:white" for="sexoHombre">Hombre</label>
+							</div>
+					 @endif
+					  </div>
 				  </div>
 				  
 				  <div class="card-body">
@@ -148,12 +181,12 @@
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Provincia</span>
 									  </div>
-									  <input type="text" name="provincia" value="{{$direccion->provincia}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La provincia sólo puede contener letras" id="provincia" class="form-control" required>
+									  <input type="text" name="provincia" value="{{$direccion->provincia}}" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="La provincia sólo puede contener letras" id="provincia" class="form-control" required>
 									  <div class="input-group-prepend">
 										<span class="input-group-text" id="">Ciudad</span>
 									  </div
 									</div>
-									<input type="text" name="ciudad" value="{{$direccion->ciudad}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La ciudad sólo puede contener letras" id="ciudad" class="form-control" required>
+									<input type="text" name="ciudad" value="{{$direccion->ciudad}}" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="La ciudad sólo puede contener letras" id="ciudad" class="form-control" required>
 								  </div>
 								  <div class="input-group">
 									  <div class="input-group-prepend">
@@ -224,12 +257,12 @@
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Provincia</span>
 						  </div>
-						  <input type="text" name="provincia" id="provincia" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La provincia sólo puede contener letras" class="form-control" required>
+						  <input type="text" name="provincia" id="provincia" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="La provincia sólo puede contener letras" class="form-control" required>
 						  <div class="input-group-prepend">
 							<span class="input-group-text" id="">Ciudad</span>
 						  </div
 						</div>
-						<input type="text" name="ciudad" id="ciudad" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="La ciudad sólo puede contener letras" class="form-control" required>
+						<input type="text" name="ciudad" id="ciudad" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="La ciudad sólo puede contener letras" class="form-control" required>
 					  </div>
 					  <div class="input-group">
 						  <div class="input-group-prepend">
@@ -312,7 +345,7 @@
 								  	<div class="input-group-prepend">
 										<span class="input-group-text" id="">Nombre del titular</span>
 									  </div>
-									  <input type="text" name="nombre_titular" value="{{$metodopago->nombre_titular}}" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
+									  <input type="text" name="nombre_titular" value="{{$metodopago->nombre_titular}}" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
 									</div>
 									
 									<div class="input-group">
@@ -394,7 +427,7 @@
 							<span class="input-group-text" id="">Nombre del titular</span>
 						  </div
 						</div>
-						<input type="text" name="nombre_titular" pattern="^[a-zA-Z_]+( [a-zA-Z_]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
+						<input type="text" name="nombre_titular" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="El nombre del titular sólo puede contener letras" id="nombre_titular" class="form-control" required>
 					  </div>
 					  <div class="input-group">
 						  <div class="input-group-prepend">
