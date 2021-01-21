@@ -28,6 +28,7 @@
 			  <th scope="col" class="text-center">Día</th>
 			  <th scope="col" class="text-center">Cliente</th>
 			  <th scope="col" class="text-center">Trabajador</th>
+			  <th scope="col" class="text-center">Tratamiento</th>
 			  <th colspan=2" class="text-center">Acciones</th>
 			</tr>
 		  </thead>
@@ -43,6 +44,9 @@
 			  <td class="text-center">
 			  @php $nombretrabajador = DB::table('trabajadores')->where('id', $cita->trabajador_id)->value('nombre'); @endphp
 			  {{$nombretrabajador}}</td>
+			  <td class="text-center">
+			  @php $nombreTratamiento = DB::table('tratamientos')->where('id', $cita->tratamiento_id)->value('nombre'); @endphp
+			  {{$nombreTratamiento}}</td>
 			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#eliminarCita{{$cita->id}}">Eliminar</button></td>
 			</tr>
 		 @endforeach
