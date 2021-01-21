@@ -24,6 +24,14 @@ class AdminController extends Controller
 			return redirect('/login');
 	}
 	
+	public function Resumen()
+	{
+		if(Auth::check() && Auth::user()->rol == "admin")
+			return view('admin/adminpanel_resumen');
+		else
+			return redirect('/login');
+	}
+	
     public function obtenerdatosTratamientos()
     {	
 		self::isAdmin();

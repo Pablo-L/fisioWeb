@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#a7c5ed; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+	<div class="jumbotron" style="background-color:#190061; color:white">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTrabajador">
 				  Dar de alta trabajador
 	  </button>
@@ -31,8 +31,8 @@
 			  <td class="text-center">{{$trabajador->email}}</td>
 			  <td class="text-center">{{$trabajador->sexo}}</td>
 			  <td class="text-center">{{$trabajador->numero_cuenta}}</td>
-			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modificarTrabajador{{$trabajador->DNI}}">Modificar</button></td>
-			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarTrabajador{{$trabajador->DNI}}">Eliminar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#modificarTrabajador{{$trabajador->DNI}}">Modificar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#eliminarTrabajador{{$trabajador->DNI}}">Eliminar</button></td>
 			</tr>
 		 @endforeach
 		  </tbody>

@@ -48,6 +48,8 @@ Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoli
 //Panel de administracion -- Panel de administracion -- Panel de administracion
 Route::get('/adminPanel', [AdminController::class, 'show'])->middleware(['auth'])->name('adminPanel');
 
+Route::get('/adminPanel_resumen', [AdminController::class, 'Resumen'])->middleware(['auth'])->name('admin_resumen');
+
 Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth'])->name('admin_tratamientos');
 Route::post('adminPanel_tratamientos', [TratamientosController::class, 'update'])->middleware(['auth'])->name('admin_tratamientos_update');
 Route::post('adminPanel_tratamientos/borrar', [TratamientosController::class, 'delete'])->middleware(['auth'])->name('admin_tratamientos_delete');

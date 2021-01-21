@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#a7c5ed; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+	<div class="jumbotron" style="background-color:#190061; color:white">
 	<div class="btn-group" role="group" aria-label="Basic example">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTratamiento">
 				  Añadir tratamiento
@@ -32,8 +32,8 @@
 			  <td class="text-center">{{$tratamiento->nombre}}</td>
 			  <td class="text-center">{{$tratamiento->descripcion}}</td>
 			  <td class="text-center">{{$tratamiento->tarifa}}€</td>
-			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
-			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
 			</tr>
 		 @endforeach
 		  </tbody>
