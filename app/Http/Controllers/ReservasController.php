@@ -75,5 +75,25 @@ class ReservasController extends Controller
         }       
     }
 
+    //obtiene los días libres de la próxima semana
+    public function obtenerDiasLibres(){
+        $diasLibres = \DB::table('diaslibres')->where('dia', '>=',now()->toDateString())
+                                                ->where('dia', '<=', now()->addDays(7)->toDateString());
+        return (array) $diasLibres;
+    }   
+
+    //obtiene siete días a partir de la fecha actual
+    public function obtenerDiasSemana(){
+        $diaUno = now()->toDateString();
+        $diaDos = now()->addDays(1)->toDateString();
+        $diaTres= now()->addDays(2)->toDateString();
+        $diaCuarto = now()->addDays(3)->toDateString();
+        $diaCinco = now()->addDays(4)->toDateString();
+        $diaSeis = now()->addDays(5)->toDateString();
+        $diaSiete = now()->addDays(6)->toDateString();
+
+        return array($diaUno, $diaDos, $diaDos, $diaTres, 
+                        $diaCuarto, $diaCinco, $diaSeis, $diaSiete);
+    }                             
     //cancelar reserva
 }
