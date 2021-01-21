@@ -22,10 +22,10 @@ class AdminController extends Controller
 	
 	public function show()
 	{
-		if(Auth::check() && Auth::user()->rol == "admin")
-			return view('admin/adminpanel_home');
-		else
-			return redirect('/login');
+		self::isAdmin();
+		
+		
+		return view('admin/adminpanel_home');
 	}
 	
 	public function Resumen()

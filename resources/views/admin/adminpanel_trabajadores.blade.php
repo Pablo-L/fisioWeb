@@ -80,7 +80,7 @@
           </div>
           <div class="form-group">
             <label for="nombreTrabajador" class="col-form-label">Nombres y Apellidos:</label>
-            <input type="text" class="form-control" id="nombreTrabajador" name="nombreTrabajador" value="{{$trabajador->nombre}}">
+            <input type="text" class="form-control" id="nombreTrabajador" name="nombreTrabajador" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" value="{{$trabajador->nombre}}">
           </div>
 		  <div class="form-group">
             <label for="edadTrabajador" class="col-form-label">Edad del trabajador:</label>
@@ -88,11 +88,11 @@
           </div>
 		  <div class="form-group">
             <label for="telefonoTrabajador" class="col-form-label">Teléfono del trabajador:</label>
-            <input type="text" class="form-control" id="telefonoTrabajador" name="telefonoTrabajador" required placeholder ="Teléfono del trabajador:" value="{{$trabajador->telefono}}">
+            <input type="text" class="form-control" id="telefonoTrabajador" name="telefonoTrabajador" pattern=".{9,9}" title="El teléfono debe de ser un número español válido" required placeholder ="Teléfono del trabajador:" value="{{$trabajador->telefono}}">
           </div>
 		  <div class="form-group">
             <label for="emailTrabajador" class="col-form-label">Email del trabajador:</label>
-            <input type="text" class="form-control" id="emailTrabajador" name="emailTrabajador" required placeholder ="Email del trabajador:" value="{{$trabajador->email}}">
+            <input type="email" class="form-control" id="emailTrabajador" name="emailTrabajador" required placeholder ="Email del trabajador:" value="{{$trabajador->email}}">
 			</div>
           <div class="form-group" style="color:black;">
 		  <label for="sexoTrabajador" class="col-form-label">Sexo del trabajador:</label><br>
@@ -179,23 +179,23 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="dniTrabajador" class="col-form-label">DNI:</label>
-            <input type="text" class="form-control" id="dniTrabajador" name="dniTrabajador" required placeholder ="DNI del trabajador">
+            <input type="text" class="form-control" id="dniTrabajador" name="dniTrabajador" required placeholder ="DNI">
           </div>
           <div class="form-group">
             <label for="nombreTrabajador" class="col-form-label">Nombres y Apellidos:</label>
-            <input type="text" class="form-control" id="nombreTrabajador" name="nombreTrabajador" required placeholder ="Nombres y Apellidos del trabajador"">
+            <input type="text" class="form-control" id="nombreTrabajador" name="nombreTrabajador" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" required placeholder ="Nombres y Apellidos">
           </div>
 		  <div class="form-group">
-            <label for="edadTrabajador" class="col-form-label">Edad del trabajador:</label>
+            <label for="edadTrabajador" class="col-form-label">Edad:</label>
             <input type="number" class="form-control" id="edadTrabajador" name="edadTrabajador" required placeholder ="Edad del trabajador">
           </div>
 		  <div class="form-group">
-            <label for="telefonoTrabajador" class="col-form-label">Teléfono del trabajador:</label>
-            <input type="text" class="form-control" id="telefonoTrabajador" name="telefonoTrabajador" required placeholder ="Teléfono del trabajador">
+            <label for="telefonoTrabajador" class="col-form-label">Teléfono:</label>
+            <input type="text" class="form-control" id="telefonoTrabajador" name="telefonoTrabajador" pattern=".{9,9}" title="El teléfono debe de ser un número español válido" required placeholder ="Teléfono del trabajador">
           </div>
 		  <div class="form-group">
-            <label for="emailTrabajador" class="col-form-label">Email del trabajador:</label>
-            <input type="text" class="form-control" id="emailTrabajador" name="emailTrabajador" required placeholder ="Email del trabajador">
+            <label for="emailTrabajador" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="emailTrabajador" name="emailTrabajador" required placeholder ="Email del trabajador">
 			</div>
           <div class="form-group" style="color:black;">
 		  <label for="sexoTrabajador" class="col-form-label">Sexo del trabajador:</label><br>
@@ -209,7 +209,7 @@
 						</div>
 			</div>
 			<div class="form-group">
-            <label for="cuentaTrabajador" class="col-form-label">Número de cuenta del trabajador:</label>
+            <label for="cuentaTrabajador" class="col-form-label">Número de cuenta:</label>
             <input type="text" class="form-control" id="cuentaTrabajador" name="cuentaTrabajador" required placeholder ="Número de cuenta del trabajador">
 			</div>
       </div>
