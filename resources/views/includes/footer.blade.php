@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="text-center text-light text-lg-start" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile';">
+<footer class="text-center text-light text-lg-start" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile'; border-top:1px solid #000"">
 	
 <div class="container p-4">
     <!--Grid row-->
