@@ -9,7 +9,8 @@ use Auth;
 class ReservasController extends Controller
 {
     public function realizarReservaForm($trabajador_id){
-        return view('/ReservarForm', ['trabajador_id' => $trabajador_id]);
+        $tratamientos = \DB::table('tratamientos')->get();
+        return view('/ReservarForm', ['trabajador_id' => $trabajador_id, 'tratamientos' => $tratamientos]);
     } 
     //dado un id de cliente y uno de trabajador realiza una reserva
     public function realizarReservaCita(Request $request)
