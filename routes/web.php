@@ -48,6 +48,8 @@ Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoli
 //Panel de administracion -- Panel de administracion -- Panel de administracion
 Route::get('/adminPanel', [AdminController::class, 'show'])->middleware(['auth'])->name('adminPanel');
 
+Route::get('/adminPanel_resumen', [AdminController::class, 'Resumen'])->middleware(['auth'])->name('admin_resumen');
+
 Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTratamientos'])->middleware(['auth'])->name('admin_tratamientos');
 Route::post('adminPanel_tratamientos', [TratamientosController::class, 'update'])->middleware(['auth'])->name('admin_tratamientos_update');
 Route::post('adminPanel_tratamientos/borrar', [TratamientosController::class, 'delete'])->middleware(['auth'])->name('admin_tratamientos_delete');
@@ -56,10 +58,16 @@ Route::post('adminPanel_tratamientos/createcategoria', [CategoriasController::cl
 Route::post('adminPanel_tratamientos/borrarcategoria', [CategoriasController::class, 'delete'])->middleware(['auth'])->name('admin_categoria_delete');
 
 Route::get('adminPanel_trabajadores', [AdminController::class, 'obtenerdatosTrabajadores'])->middleware(['auth'])->name('admin_trabajadores');
+Route::post('adminPanel_trabajadores', [TrabajadoresController::class, 'update'])->middleware(['auth'])->name('admin_trabajadores_update');
+Route::post('adminPanel_trabajadores/borrar', [TrabajadoresController::class, 'delete'])->middleware(['auth'])->name('admin_trabajadores_delete');
+Route::post('adminPanel_trabajadores/crear', [TrabajadoresController::class, 'create'])->middleware(['auth'])->name('admin_trabajadores_create');
 
 Route::get('adminPanel_citas', [AdminController::class, 'obtenerCitas'])->middleware(['auth'])->name('admin_citas');
 
 Route::get('adminPanel_usuarios', [AdminController::class, 'obtenerUsuarios'])->middleware(['auth'])->name('admin_users');
+Route::post('adminPanel_usuarios', [AdminController::class, 'updateUser'])->middleware(['auth'])->name('admin_users_update');
+Route::post('adminPanel_usuarios/borrar', [AdminController::class, 'deleteUser'])->middleware(['auth'])->name('admin_users_delete');
+Route::post('adminPanel_usuarios/crear', [AdminController::class, 'createUser'])->middleware(['auth'])->name('admin_users_create');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion

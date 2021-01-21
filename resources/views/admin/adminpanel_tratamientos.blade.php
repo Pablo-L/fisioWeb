@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#a7c5ed; border-top: 1px solid #000; border-bottom: 1px solid #000;">
+	<div class="jumbotron" style="background-color:transparent; color:white; font-family:'Nobile';">
 	<div class="btn-group" role="group" aria-label="Basic example">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTratamiento">
 				  Añadir tratamiento
@@ -12,29 +12,28 @@
 	  </button>
 	</div>
 	
-		<table class="table table-bordered table-hover">
+		<table class="table table-bordered table-hover" style="background-color:#66646a">
 		  <thead class="thead-dark">
 			<tr>
-			  <th scope="col">ID</th>
-			  <th scope="col">categoria</th>
-			  <th scope="col">nombre</th>
-			  <th scope="col">descripcion</th>
-			  <th scope="col">tarifa</th>
-			  <th scope="col">modificar</th>
-			  <th scope="col">eliminar</th>
+			  <th scope="col" class="text-center">ID</th>
+			  <th scope="col" class="text-center">Categoría</th>
+			  <th scope="col" class="text-center">Nombre</th>
+			  <th scope="col" class="text-center">Descripción</th>
+			  <th scope="col" class="text-center">Tarifa(€)</th>
+			  <th colspan=2" class="text-center">Acciones</th>
 			</tr>
 		  </thead>
 		  <tbody>
 		  
 		  @foreach ($tratamientos as $tratamiento)
 			<tr>
-			  <td>{{$tratamiento->id}}</td>
-			  <td>{{$tratamiento->categoria}}</td>
-			  <td>{{$tratamiento->nombre}}</td>
-			  <td>{{$tratamiento->descripcion}}</td>
-			  <td>{{$tratamiento->tarifa}}€</td>
-			  <td><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
-			  <td><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
+			  <td class="text-center">{{$tratamiento->id}}</td>
+			  <td class="text-center">{{$tratamiento->categoria}}</td>
+			  <td class="text-center">{{$tratamiento->nombre}}</td>
+			  <td class="text-center">{{$tratamiento->descripcion}}</td>
+			  <td class="text-center">{{$tratamiento->tarifa}}€</td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-dark" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
 			</tr>
 		 @endforeach
 		  </tbody>
