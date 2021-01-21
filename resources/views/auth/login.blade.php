@@ -4,9 +4,6 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		  <a class="navbar-brand">Clínicas Fisioweb</a>
-		  </nav>
         </x-slot>
 
         <!-- Session Status -->
@@ -17,17 +14,19 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+			
+			
             <!-- Email Address -->
+			<br><br>
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label style="color:white" for="email" :value="__('Email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Contraseña')" />
+                <x-label style="color:white" for="password" :value="__('Contraseña')" />
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -39,13 +38,13 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Recordar contraseña') }}</span>
+                    <span style="color:white" class="ml-2 text-sm text-gray-600">{{ __('Recordar contraseña') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a style="color:white" class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('¿Has olvidado tu contraseña?') }}
                     </a>
                 @endif
