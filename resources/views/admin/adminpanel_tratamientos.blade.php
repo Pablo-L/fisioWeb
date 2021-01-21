@@ -15,26 +15,25 @@
 		<table class="table table-bordered table-hover">
 		  <thead class="thead-dark">
 			<tr>
-			  <th scope="col">ID</th>
-			  <th scope="col">categoria</th>
-			  <th scope="col">nombre</th>
-			  <th scope="col">descripcion</th>
-			  <th scope="col">tarifa</th>
-			  <th scope="col">modificar</th>
-			  <th scope="col">eliminar</th>
+			  <th scope="col" class="text-center">ID</th>
+			  <th scope="col" class="text-center">Categoría</th>
+			  <th scope="col" class="text-center">Nombre</th>
+			  <th scope="col" class="text-center">Descripción</th>
+			  <th scope="col" class="text-center">Tarifa(€)</th>
+			  <th colspan=2" class="text-center">Acciones</th>
 			</tr>
 		  </thead>
 		  <tbody>
 		  
 		  @foreach ($tratamientos as $tratamiento)
 			<tr>
-			  <td>{{$tratamiento->id}}</td>
-			  <td>{{$tratamiento->categoria}}</td>
-			  <td>{{$tratamiento->nombre}}</td>
-			  <td>{{$tratamiento->descripcion}}</td>
-			  <td>{{$tratamiento->tarifa}}€</td>
-			  <td><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
-			  <td><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
+			  <td class="text-center">{{$tratamiento->id}}</td>
+			  <td class="text-center">{{$tratamiento->categoria}}</td>
+			  <td class="text-center">{{$tratamiento->nombre}}</td>
+			  <td class="text-center">{{$tratamiento->descripcion}}</td>
+			  <td class="text-center">{{$tratamiento->tarifa}}€</td>
+			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modifyTratamiento{{$tratamiento->id}}">Modificar</button></td>
+			  <td class="text-center"><type="button" class="btn btn-secondary" data-toggle="modal" data-target="#eliminarTratamiento{{$tratamiento->id}}">Eliminar</button></td>
 			</tr>
 		 @endforeach
 		  </tbody>
