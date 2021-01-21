@@ -10,10 +10,10 @@ class Trabajadores extends Model
     use HasFactory;
 	
 	protected $table = 'trabajadores';
-	protected $primarykey = 'dni';
-	public $incrementing = false;
+	protected $primarykey = 'id';
+	public $incrementing = true;
 	public $timestamps = true;
-	protected $fillable = ['dni','nombre', 'edad', 'telefono', 'email', 'sexo', 'poblacion', 'numero_cuenta'];
+	protected $fillable = ['DNI','nombre', 'edad', 'telefono', 'email', 'sexo', 'poblacion', 'numero_cuenta'];
 	
 	public function _poblacion()
 	{

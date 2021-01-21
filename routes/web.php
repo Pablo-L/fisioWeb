@@ -56,6 +56,9 @@ Route::post('adminPanel_tratamientos/createcategoria', [CategoriasController::cl
 Route::post('adminPanel_tratamientos/borrarcategoria', [CategoriasController::class, 'delete'])->middleware(['auth'])->name('admin_categoria_delete');
 
 Route::get('adminPanel_trabajadores', [AdminController::class, 'obtenerdatosTrabajadores'])->middleware(['auth'])->name('admin_trabajadores');
+Route::post('adminPanel_trabajadores', [TrabajadoresController::class, 'update'])->middleware(['auth'])->name('admin_trabajadores_update');
+Route::post('adminPanel_trabajadores/borrar', [TrabajadoresController::class, 'delete'])->middleware(['auth'])->name('admin_trabajadores_delete');
+Route::post('adminPanel_trabajadores/crear', [TrabajadoresController::class, 'create'])->middleware(['auth'])->name('admin_trabajadores_create');
 
 Route::get('adminPanel_citas', [AdminController::class, 'obtenerCitas'])->middleware(['auth'])->name('admin_citas');
 
