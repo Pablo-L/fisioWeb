@@ -16,12 +16,12 @@ class RecepcionistaController extends Controller
     public function obtenerClientes(){
     	if(Auth::check() && Auth::user()->rol == "recepcionista"){
     		$usuarios = \DB::table('users')->where('rol', '=', 'user')->get();
-    		$tratamientos = \DB::table('tratamientos')->get();
+    		$trabajadores = \DB::table('trabajadores')->get();
             $diaActual = date("Y-m-d");
             $hoy = new DateTime('NOW');
             $ocurrencias = 60;
             $diasPermitidos = new DatePeriod($hoy, new DateInterval('P1D'), $ocurrencias);
-    		return view('recepcionista/recepcionista_reserva', ['users' => $usuarios, 'tratamientos' => $tratamientos, 'diasPermitidos' => $diasPermitidos, 'min' => $diaActual]);
+    		return view('recepcionista/recepcionista_reserva', ['users' => $usuarios, 'trabajadores' => $trabajadores, 'diasPermitidos' => $diasPermitidos, 'min' => $diaActual]);
     	}
     	else
     		return redirect('/login');
@@ -37,9 +37,12 @@ class RecepcionistaController extends Controller
     		return redirect('/login');
     }
 
-    public function reservar(){
+    public function reservar(Request $request){
         if(Auth::check() && Auth::user()->rol == "recepcionista"){
             //Reservar cita para un cliente
+            $reserva = Reservas::create(['hora' => $request->hora, 'dia' => $request->dia, 'trabajador_id' => $request->idTrabajador, 'cliente_id' => $request->idUser]);
+            $reserva->save();
+            return redirect('/recepcionista_citas')->with('success', true)->with('message','La cita se ha añadido correctamente');
         }
         else
             return redirect('/login');

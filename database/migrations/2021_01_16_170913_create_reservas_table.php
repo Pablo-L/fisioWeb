@@ -19,7 +19,7 @@ class CreateReservasTable extends Migration
             $table->time('hora');
             $table->date('dia');
             $table->unsignedInteger('cliente_id')->nullable();
-            $table->unsignedInteger('trabajador_id');
+            $table->string('trabajador_id', 9);
             $table->timestamps();
         });
     }

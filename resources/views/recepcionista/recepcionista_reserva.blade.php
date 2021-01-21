@@ -2,6 +2,14 @@
 
 @section ('contenido')
 
+
+@if(Session::has('success'))
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Cita asignada correctamente</strong> {{ Session::get('message', '') }}
+    </div>
+@endif
+
 <div style="background-color: #a7c5ed;" class="table-responsive">
 	<table class="table">
 		<tr>
@@ -33,12 +41,11 @@
 						<td>Tarifa</td>
 						<td></td>
 					</tr>
-					@foreach($tratamientos as $tratamiento)
+					@foreach($trabajadores as $trabajador)
 					<tr>
-						<td>{{$tratamiento->id}}</td>
-						<td>{{$tratamiento->nombre}}</td>
-						<td>{{$tratamiento->tarifa}} €</td>
-						<td><input class="btn" type="button" name="SelectTratamiento" value="Seleccionar tratamiento" onclick="tratamiento('{{$tratamiento->nombre}}', '{{$tratamiento->id}}' )"></td>
+						<td>{{$trabajador->DNI}}</td>
+						<td>{{$trabajador->nombre}}</td>
+						<td><input class="btn" type="button" name="SelectTratamiento" value="Seleccionar trabajador" onclick="trabajador('{{$trabajador->nombre}}', '{{$trabajador->DNI}}' )"></td>
 					</tr>
 					@endforeach
 				</table>
@@ -52,7 +59,7 @@
 								<label>Usuario</label>
 							</td>
 							<td style="vertical-align: bottom;">
-								<label>Tratamiento</label>
+								<label>Trabajador</label>
 							</td>
 						</tr>
 						<tr>
@@ -61,8 +68,8 @@
 								<input type="text" name="user" id="emailUsuario" disabled>
 							</td>
 							<td style="vertical-align: top;">
-								<input type="hidden" name="idTratamiento" id="idTratamiento">
-								<input type="text" name="tratamiento" id="nombreTratamiento">
+								<input type="hidden" name="idTrabajador" id="idTrabajador">
+								<input type="text" name="trabajador" id="nombreTrabajador" disabled>
 							</td>
 						</tr>
 						<tr>
@@ -75,7 +82,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align: center;">
-								<input class="btn" type="button" name="Confirmar" value="Confirmar cita">
+								<input class="btn" type="submit" name="Confirmar" value="Confirmar cita">
 							</td>
 						</tr>
 					</table>
@@ -85,22 +92,15 @@
 	</table>
 </div>
 
-@if(Session::has('success'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>Cita asignada correctamente</strong> {{ Session::get('message', '') }}
-    </div>
-@endif
-
 <script>
 	function usuario(valor, valor2){
 		document.getElementById("emailUsuario").value = valor;
 		document.getElementById("idUser").value = valor2;
 	}
 
-	function tratamiento(valor, valor2){
-		document.getElementById("nombreTratamiento").value = valor;
-		document.getElementById("idTratamiento").value = valor2;
+	function trabajador(valor, valor2){
+		document.getElementById("nombreTrabajador").value = valor;
+		document.getElementById("idTrabajador").value = valor2;
 	}
 </script>
 @stop
