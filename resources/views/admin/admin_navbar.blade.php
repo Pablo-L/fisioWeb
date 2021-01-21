@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile';">
+		<nav class="navbar navbar-expand-lg navbar-light" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile'; border-bottom:1px solid #000">
 		  <a class="navbar-brand" style="color:white" href="/adminPanel">Panel de Administración</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

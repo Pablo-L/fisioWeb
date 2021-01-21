@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:transparent; color:white; font-family:'Nobile';">
+	<div class="jumbotron" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; color:white; font-family:'Nobile';">
 	  <h1 class="display-4">¡Bienvenido al Panel de Administración de Fisioweb!</h1>
 	  <p class="lead">Aquí puedes modificar los tratamientos disponibles, los trabajadores dados de alta, revisar citas de clientes o incluso cancelarlas.</p>
 	  <hr class="my-4">
