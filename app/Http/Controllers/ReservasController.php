@@ -9,7 +9,8 @@ use Auth;
 class ReservasController extends Controller
 {
     public function realizarReservaForm($trabajador_id){
-        return view('/ReservarForm', ['trabajador_id' => $trabajador_id]);
+        $tratamientos = \DB::table('tratamientos')->get();
+        return view('/ReservarForm', ['trabajador_id' => $trabajador_id, 'tratamientos' => $tratamientos]);
     } 
     //dado un id de cliente y uno de trabajador realiza una reserva
     public function realizarReservaCita(Request $request)
@@ -46,7 +47,7 @@ class ReservasController extends Controller
     public function obtenerListadoCitasCliente()
     {	
         $reservas = \DB::table('reservas')->select('hora','dia','trabajador_id')
-                                                ->where('cliente_id',Auth::user()->id)->get();
+                                                ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
         return view('perfil/perfil_citas', ['reservas' => $reservas]);
     }
     //dado un id de trabajador y una fecha devuelve un 'bool' que determina si el día esta libre o no

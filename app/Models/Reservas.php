@@ -13,7 +13,7 @@ class Reservas extends Model
 	public $primarykey = 'id';
 	public $incrementing = true;
 	public $timestamps = true;
-	protected $fillable = ['hora', 'dia', 'cliente_id', 'trabajador_id'];
+	protected $fillable = ['hora', 'dia', 'cliente_id', 'trabajador_id', 'tratamiento_id'];
 	
 	public function _clientes()
 	{

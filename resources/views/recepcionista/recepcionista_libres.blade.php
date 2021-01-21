@@ -43,7 +43,7 @@
 						</tr>
 						<tr>
 							<td style="vertical-align: top;">
-								<input type="date" name="dia">
+								<input type="date" name="dia" min="{{$min}}">
 							</td>
 							<td style="vertical-align: top;">
 								<input type="text" name="motivo">
