@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Reservas;
 use Hash;
 
 
@@ -29,8 +30,7 @@ class AdminController extends Controller
 	
 	public function Resumen()
 	{
-		if(Auth::check() && Auth::user()->rol == "admin")
-		{
+		self::isAdmin();
 			
 			$numtrabajadores = \DB::table('trabajadores')->count();
 			$numusers = \DB::table('users')->count();
@@ -48,9 +48,6 @@ class AdminController extends Controller
 			return view('admin/adminpanel_resumen', ['numero_Trabajadores' => $numtrabajadores, 'numero_usuarios' => $numusers, 'numero_clientes' => $numclientes, 'numero_altas_mes' => $numaltasmes, 
 			'numero_altas_mespasado' => $numaltasmes_pasado, 'numero_reservas_mes' => $numreservasmes, 'numero_reservas_mespasado' => $numreservasmes_pasado, 'numtratamientos' => $numtratamientos,
 			'nombrescategorias' => $nombrescategorias]);
-		}
-		else
-			return redirect('/login');
 	}
 	
     public function obtenerdatosTratamientos()
@@ -78,10 +75,14 @@ class AdminController extends Controller
     {	
 		self::isAdmin();
         
+		$diaActual = date("Y-m-d");
 		$citas = \DB::table('reservas')->get();
+		$users = $users = \DB::table('users')->where('rol', '=', 'user')->get();;
+		$tratamientos = \DB::table('tratamientos')->get();
+		$trabajadores = \DB::table('trabajadores')->get();
 			
 			
-		return view('admin/adminpanel_citas', ['citas' => $citas]);
+		return view('admin/adminpanel_citas', ['citas' => $citas, 'users' => $users, 'tratamientos' => $tratamientos, 'min' => $diaActual, 'trabajadores' => $trabajadores]);
 	}	
 	
 	public function obtenerUsuarios()
@@ -96,6 +97,7 @@ class AdminController extends Controller
 	
 	public function updateUser(Request $request)
 	{
+		self::isAdmin();
 		$id = $request->input('idUser');
 		$nombre = $request->input('nombreUser');
 		$apellidos = $request->input('apellidosUser');
@@ -120,6 +122,7 @@ class AdminController extends Controller
 	
 	public function createUser(Request $request)
 	{
+		self::isAdmin();
 		$id = $request->input('idUser');
 		$nombre = $request->input('nombreUser');
 		$apellidos = $request->input('apellidosUser');
@@ -154,5 +157,28 @@ class AdminController extends Controller
 		$u->delete();
 		
 		return redirect()->route('admin_users')->with('success','Usuario eliminado.');
+	}
+	
+	 public function crearCitas(Request $request)
+	 {
+        self::isAdmin();
+            
+            $reserva = Reservas::create(['hora' => $request->hora, 'dia' => $request->dia, 'trabajador_id' => $request->idTrabajador, 'cliente_id' => $request->idUser, 'tratamiento_id' => $request->idTratamiento]);
+            $reserva->save();
+			
+			return redirect()->route('admin_citas')->with('success','La cita se ha creado con éxito.');
+
+    }
+	
+		public function deleteCita(Request $request)
+	{
+		
+		$cita_id = $request->input('idCita');
+		
+		$r = Reservas::findOrFail($cita_id);
+		
+		$r->delete();
+		
+		return redirect()->route('admin_citas')->with('success','Cita eliminada.');
 	}
 }

@@ -63,6 +63,8 @@ Route::post('adminPanel_trabajadores/borrar', [TrabajadoresController::class, 'd
 Route::post('adminPanel_trabajadores/crear', [TrabajadoresController::class, 'create'])->middleware(['auth'])->name('admin_trabajadores_create');
 
 Route::get('adminPanel_citas', [AdminController::class, 'obtenerCitas'])->middleware(['auth'])->name('admin_citas');
+Route::post('adminPanel_citas/crear', [AdminController::class, 'crearCitas'])->middleware(['auth'])->name('admin_citas_create');
+Route::post('adminPanel_citas/borrar', [AdminController::class, 'deleteCita'])->middleware(['auth'])->name('admin_citas_delete');
 
 Route::get('adminPanel_usuarios', [AdminController::class, 'obtenerUsuarios'])->middleware(['auth'])->name('admin_users');
 Route::post('adminPanel_usuarios', [AdminController::class, 'updateUser'])->middleware(['auth'])->name('admin_users_update');
