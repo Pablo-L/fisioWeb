@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Hash;
 
 
 
@@ -86,9 +88,71 @@ class AdminController extends Controller
     {	
 		self::isAdmin();
         
-		$users = \DB::table('users')->get();
+		$users = \DB::table('users')->where('rol', '!=', 'admin')->get();
 			
 			
 		return view('admin/adminpanel_usuarios', ['users' => $users]);
+	}
+	
+	public function updateUser(Request $request)
+	{
+		$id = $request->input('idUser');
+		$nombre = $request->input('nombreUser');
+		$apellidos = $request->input('apellidosUser');
+		$email = $request->input('emailUser');
+		$telefono = $request->input('telefonoUser');
+		$sexo = $request->input('sexoUser');
+		$rol = $request->input('rolUser');
+
+		$u = User::findorFail($id);
+		
+		$u->nombre = $nombre;
+		$u->apellidos =$apellidos;
+		$u->email = $email;
+		$u->telefono = $telefono;
+		$u->sexo = $sexo;
+		$u->rol = $rol;
+			
+		$u->update();
+		
+		return redirect()->route('admin_users')->with('success','Datos cambiados con éxito.');
+    }
+	
+	public function createUser(Request $request)
+	{
+		$id = $request->input('idUser');
+		$nombre = $request->input('nombreUser');
+		$apellidos = $request->input('apellidosUser');
+		$email = $request->input('emailUser');
+		$telefono = $request->input('telefonoUser');
+		$sexo = $request->input('sexoUser');
+		$rol = $request->input('rolUser');
+		$password = $request->input('contrasenaUser');
+
+		$u = new User();
+		
+		$u->nombre = $nombre;
+		$u->apellidos =$apellidos;
+		$u->email = $email;
+		$u->telefono = $telefono;
+		$u->sexo = $sexo;
+		$u->rol = $rol;
+		$u->password = Hash::make($password);
+			
+		$u->save();
+		
+		return redirect()->route('admin_users')->with('success','Usuario creado con éxito.');
+    }
+	
+	public function deleteUser(Request $request)
+	{
+		
+		$user_id = $request->input('idUsuario');
+		
+		$u = User::findOrFail($user_id);
+		
+		$u->delete();
+		
+		return redirect()->route('admin_users')->with('success','Usuario eliminado.');
 	}
 }

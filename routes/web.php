@@ -65,6 +65,9 @@ Route::post('adminPanel_trabajadores/crear', [TrabajadoresController::class, 'cr
 Route::get('adminPanel_citas', [AdminController::class, 'obtenerCitas'])->middleware(['auth'])->name('admin_citas');
 
 Route::get('adminPanel_usuarios', [AdminController::class, 'obtenerUsuarios'])->middleware(['auth'])->name('admin_users');
+Route::post('adminPanel_usuarios', [AdminController::class, 'updateUser'])->middleware(['auth'])->name('admin_users_update');
+Route::post('adminPanel_usuarios/borrar', [AdminController::class, 'deleteUser'])->middleware(['auth'])->name('admin_users_delete');
+Route::post('adminPanel_usuarios/crear', [AdminController::class, 'createUser'])->middleware(['auth'])->name('admin_users_create');
 
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
