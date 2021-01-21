@@ -102,10 +102,10 @@ Route::get('/recepcionista', function (){
 		return view('recepcionista/home');
 	else
 		return redirect('/login');
-})->middleware(['auth']);
+})->middleware(['auth'])->name('recepcionista');
 
-route::get('recepcionista_citas', [RecepcionistaController::class, 'obtenerClientes'])->middleware(['auth']);
-route::get('recepcionista_libres', [RecepcionistaController::class, 'obtenerLibres'])->middleware(['auth']);
+route::get('recepcionista_citas', [RecepcionistaController::class, 'obtenerClientes'])->middleware(['auth'])->name('recepcionista_citas');
+route::get('recepcionista_libres', [RecepcionistaController::class, 'obtenerLibres'])->middleware(['auth'])->name('recepcionista_libres');
 route::post('recepcionista_reserva', [RecepcionistaController::class, 'reservar'])->middleware(['auth'])->name('recepcionista_reserva');
 route::post('recepcionista_diaLibre', [RecepcionistaController::class, 'diaLibre'])->middleware(['auth'])->name('recepcionista_diaLibre');
 route::post('recepcionista_eliminarDia', [RecepcionistaController::class, 'eliminarDia'])->middleware(['auth'])->name('recepcionista_eliminarDia');

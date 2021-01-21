@@ -22,20 +22,24 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form id="reservaForm" name="reservaForm">
+        <form id="reservaForm" name="reservaForm" method="POST" action="{{route('reservar')}}">
             @csrf
 
             <!-- Tratamientos -->
-            <div>
-                <label>Tratamientos</label>
-                <input type="" name="">
+            <div class="mt-4">
+                <label>Tratamiento</label>
+                <select name="tratamiento_id" id="tratamiento_id" required>
+                @foreach($tratamientos as $tratamiento)
+                <option label="{{$tratamiento->nombre}}" value="{{$tratamiento->id}}"></option>
+                @endforeach
+                </select>
             </div>
 
             <!-- Días -->
             <div class="mt-4">
                 <x-label for="dia" :value="__('Dia')" />
                 <!--<x-input id="dia" class="block mt-1 w-full" type="date" name="dia" :value="old('dia')" required autofocus />-->
-                <select>
+                <select id="dia" name="dia">
                 @foreach($arrayDias as $dia)
                     @if( in_array($dia, $arrayLibres) )
                     <option style="color:red">{{$dia}}</option>
@@ -55,9 +59,7 @@
             <x-input id="cliente_id" type="hidden" name="cliente_id" value="{{Auth::user() ->id}}"/>
             <span id="spanMensaje" style="color:green;"></span>
             <div class="flex items-center justify-end mt-4">
-                <x-button class="ml-3" onclick="reservar()">
-                    {{ __('Reservar') }}
-                </x-button>
+                <input type="submit" value="Reservar cita" class="ml-3" onclick="">
             </div>
         </form>
     </x-auth-card>
