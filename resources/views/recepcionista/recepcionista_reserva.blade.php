@@ -80,15 +80,15 @@
 						<tr>
 							<td style="vertical-align: top;">
 								<input type="hidden" name="idUser" id="idUser" required>
-								<input type="text" name="user" id="emailUsuario" disabled>
+								<input type="text" name="user" id="emailUsuario" required>
 							</td>
 							<td style="vertical-align: top;">
 								<input type="hidden" name="idTrabajador" id="idTrabajador" required>
-								<input type="text" name="trabajador" id="nombreTrabajador" disabled>
+								<input type="text" name="trabajador" id="nombreTrabajador" required>
 							</td>
 							<td style="vertical-align: top;">
 								<input type="hidden" name="idTratamiento" id="idTratamiento" required>
-								<input type="text" name="tratamiento" id="nombreTratamiento" disabled>
+								<input type="text" name="tratamiento" id="nombreTratamiento" required>
 							</td>
 						</tr>
 						<tr>
