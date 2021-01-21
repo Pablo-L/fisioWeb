@@ -2,6 +2,24 @@
 
 @section('contenido')
 
+@if (\Session::has('success'))
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+			{!! \Session::get('success') !!}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		@endif
+		
+		@if (\Session::has('error'))
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			{!! \Session::get('error') !!}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		@endif
+
 	<div class="jumbotron" style="background-color:transparent; color:white; font-family:'Nobile';">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTrabajador">
 				  Dar de alta trabajador
