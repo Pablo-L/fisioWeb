@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<div style="background-color: #a7c5ed;" class="table-responsive">
+<div style="background: url(/imagenes/black_lozenge.png) repeat 0 0; color:white; font-family:'Nobile';" class="table-responsive">
 	<table class="table">
 		<tr>
 			<td style="vertical-align: top;">
