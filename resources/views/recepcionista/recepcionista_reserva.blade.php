@@ -14,7 +14,7 @@
 	<table class="table">
 		<tr>
 			<td style="vertical-align: top;">
-				<table class="table table-striped" style="background-color: #B3CDEF">
+				<table class="table table-bordered table-hover" style="background-color:#66646a">
 					<th colspan="4">Usuarios</th>
 					<tr>
 						<td>Nombre</td>
@@ -31,7 +31,7 @@
 				</table>
 			</td>
 			<td style="vertical-align: top; margin-right: 5px;">
-				<table class="table table-striped" style="background-color: #B3CDEF">
+				<table class="table table-bordered table-hover" style="background-color:#66646a">
 					<th colspan="4">Trabajadores</th>
 					<tr>
 						<td>Nombre</td>
@@ -46,7 +46,7 @@
 				</table>
 			</td>
 			<td style="vertical-align: top; margin-right: 5px;">
-				<table class="table table-striped" style="background-color: #B3CDEF">
+				<table class="table table-bordered table-hover" style="background-color:#66646a">
 					<th colspan="4">Tratamientos</th>
 					<tr>
 						<td>Nombre</td>
@@ -65,7 +65,7 @@
 			<td style="vertical-align: top;">
 				<form method="POST" action="{{ route('recepcionista_reserva') }}">
 					@csrf
-					<table class="table" style="background-color: #B3CDEF">
+					<table class="table table-bordered table-hover" style="background-color:#66646a">
 						<tr>
 							<td style="vertical-align: bottom;">
 								<label>Usuario</label>
