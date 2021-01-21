@@ -17,7 +17,7 @@ class Reservas extends Model
 	
 	public function _clientes()
 	{
-		return $this->hasOne("App\Clientes");
+		return $this->hasOne("App\User");
     }
 
     public function _trabajadores()

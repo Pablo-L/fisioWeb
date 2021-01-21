@@ -20,9 +20,9 @@ class CreateTratamientosTable extends Migration
 			$table->string('nombre', 100);
 			$table->string('descripcion', 1000);
 			$table->integer('tarifa');
+			
+			$table->foreign('categoria')->references('nombre')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
         });
-		
-		DB::statement('ALTER TABLE tratamientos ADD CONSTRAINT chk_categoria_tratamientos CHECK (categoria in ("Fisioterapia", "Osteopatía", "Acupuntura"));');
 	}
 
     /**

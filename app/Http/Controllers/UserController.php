@@ -19,12 +19,16 @@ class UserController extends Controller
 		$nuevacontrasenya = $request->input('newpasswordinput');
 		$contrasenya = $request->input('actualpasswordinput');
 		$confirmacontrasenya = $request->input('confirmpasswordinput');
+		$telefono = $request->input('telefonoinput');
+		$sexo = $request->input('sexoinput');
 
 		$u = User::findorFail(Auth::user()->id);
 		
 		$u->nombre = $nombre;
 		$u->apellidos =$apellidos;
 		$u->email = $email;
+		$u->telefono = $telefono;
+		$u->sexo = $sexo;
 		
 		if($nuevacontrasenya != NULL)
 		{
