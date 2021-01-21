@@ -93,7 +93,7 @@
           </div>
 		  <div class="form-group">
             <label for="tarifaTratamiento" class="col-form-label">Tarifa:</label>
-            <input type="text" class="form-control" id="tarifaTratamiento" name="tarifaTratamiento" required placeholder ="Tarifa de tratamiento:" value="{{$tratamiento->tarifa}}">
+            <input type="number" class="form-control" id="tarifaTratamiento" name="tarifaTratamiento" required placeholder ="Tarifa de tratamiento:" value="{{$tratamiento->tarifa}}">
 			<input type="hidden" name="idTratamiento" value="{{$tratamiento->id}}">
           </div>
       </div>
@@ -170,7 +170,7 @@
           </div>
 		  <div class="form-group">
             <label for="tarifaTratamiento" class="col-form-label">Tarifa:</label>
-            <input type="text" class="form-control" id="tarifaTratamiento" name="tarifaTratamiento" required placeholder ="Tarifa de tratamiento">
+            <input type="number" class="form-control" id="tarifaTratamiento" name="tarifaTratamiento" required placeholder ="Tarifa de tratamiento">
 			<input type="hidden" name="idTratamiento" value="{{$tratamiento->id}}">
           </div>
       </div>

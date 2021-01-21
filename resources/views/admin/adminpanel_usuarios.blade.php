@@ -76,11 +76,11 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="nombreUser" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombreUser" name="nombreUser" required placeholder ="Nombre del usuario" value="{{$user->nombre}}">
+            <input type="text" class="form-control" id="nombreUser" name="nombreUser" name="nombreTrabajador" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" required placeholder ="Nombre del usuario" value="{{$user->nombre}}">
           </div>
           <div class="form-group">
             <label for="apellidosUser" class="col-form-label">Apellidos:</label>
-            <input type="text" class="form-control" id="apellidosUser" name="apellidosUser" value="{{$user->apellidos}}">
+            <input type="text" class="form-control" id="apellidosUser" name="apellidosUser" name="nombreTrabajador" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" value="{{$user->apellidos}}">
           </div>
 		  <div class="form-group">
             <label for="emailUser" class="col-form-label">Email:</label>
@@ -88,7 +88,7 @@
           </div>
 		  <div class="form-group">
             <label for="telefonoUsuario" class="col-form-label">Teléfono:</label>
-            <input type="text" class="form-control" id="telefonoUser" name="telefonoUser" required placeholder ="Teléfono del usuario:" value="{{$user->telefono}}">
+            <input type="text" class="form-control" id="telefonoUser" name="telefonoUser" pattern=".{9,9}" title="El teléfono debe de ser un número español válido" required placeholder ="Teléfono del usuario" value="{{$user->telefono}}">
           </div>
           <div class="form-group" style="color:black;">
 		  <label for="sexoUser" class="col-form-label">Sexo:</label><br>
@@ -180,11 +180,11 @@
       <div class="modal-body">
           <div class="form-group">
             <label for="nombreUser" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombreUser" name="nombreUser" required placeholder ="Nombre del usuario">
+            <input type="text" class="form-control" id="nombreUser" name="nombreUser" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" required placeholder ="Nombre del usuario">
           </div>
           <div class="form-group">
             <label for="apellidosUser" class="col-form-label">Apellidos:</label>
-            <input type="text" class="form-control" id="apellidosUser" name="apellidosUser" required placeholder ="Apellidos del usuario">
+            <input type="text" class="form-control" id="apellidosUser" name="apellidosUser" pattern="^[a-zA-Z\u00C0-\u017F\s]+( [a-zA-Z\u00C0-\u017F\s]+)*$" title="Sólo puede contener letras" required placeholder ="Apellidos del usuario">
           </div>
 		  <div class="form-group">
             <label for="emailUser" class="col-form-label">Email:</label>
@@ -192,7 +192,7 @@
           </div>
 		  <div class="form-group">
             <label for="telefonoUsuario" class="col-form-label">Teléfono:</label>
-            <input type="text" class="form-control" id="telefonoUser" name="telefonoUser" required placeholder ="Teléfono del usuario">
+            <input type="text" class="form-control" id="telefonoUser" name="telefonoUser" pattern=".{9,9}" title="El teléfono debe de ser un número español válido" required placeholder ="Teléfono del usuario">
           </div> 
 		  <div class="form-group">
             <label for="contrasenaUser" class="col-form-label">Contraseña:</label>
