@@ -19,7 +19,7 @@
 						<td>{{$user->id}}</td>
 						<td>{{$user->nombre}} {{$user->apellidos}}</td>
 						<td>{{$user->email}}</td>
-						<td><input class="btn" type="button" name="SelectUsuario" value="Seleccionar usuario"></td>
+						<td><input class="btn" type="button" name="SelectUsuario" value="Seleccionar usuario" onclick="usuario('{{$user->email}}', '{{$user->id}}' )"></td>
 					</tr>
 					@endforeach
 				</table>
@@ -38,7 +38,7 @@
 						<td>{{$tratamiento->id}}</td>
 						<td>{{$tratamiento->nombre}}</td>
 						<td>{{$tratamiento->tarifa}} €</td>
-						<td><input class="btn" type="button" name="SelectTratamiento" value="Seleccionar tratamiento"></td>
+						<td><input class="btn" type="button" name="SelectTratamiento" value="Seleccionar tratamiento" onclick="tratamiento('{{$tratamiento->nombre}}', '{{$tratamiento->id}}' )"></td>
 					</tr>
 					@endforeach
 				</table>
@@ -57,10 +57,12 @@
 						</tr>
 						<tr>
 							<td style="vertical-align: top;">
-								<input type="" name="user" disabled>
+								<input type="hidden" name="idUser" id="idUser">
+								<input type="text" name="user" id="emailUsuario" disabled>
 							</td>
 							<td style="vertical-align: top;">
-								<input type="" name="tratamiento" disabled>
+								<input type="hidden" name="idTratamiento" id="idTratamiento">
+								<input type="text" name="tratamiento" id="nombreTratamiento" disabled>
 							</td>
 						</tr>
 						<tr>
@@ -84,14 +86,14 @@
 </div>
 
 <script>
-    flatpickr('#dia')
-</script>
+	function usuario(valor, valor2){
+		document.getElementById("emailUsuario").value = valor;
+		document.getElementById("idUser").value = valor2;
+	}
 
-{{-- $(".btnPilih").each(function(){
-    $(this).click(function(){
-    var nik = $(this).data("nik");
-    document.getElementById("nik").value = nik;
-    })
-  });
---}}
+	function tratamiento(valor, valor2){
+		document.getElementById("nombreTratamiento").value = valor;
+		document.getElementById("idTratamiento").value = valor2;
+	}
+</script>
 @stop

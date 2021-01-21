@@ -29,7 +29,8 @@ class RecepcionistaController extends Controller
     public function obtenerLibres(){
     	if(Auth::check() && Auth::user()->rol == "recepcionista"){
             $dias = \DB::table('diaslibres')->orderBy('dia', 'ASC')->get();
-    		return view('recepcionista/recepcionista_libres', ['dias' => $dias]);
+            $diaActual = date("Y-m-d");
+    		return view('recepcionista/recepcionista_libres', ['dias' => $dias, 'min' => $diaActual]);
     	}
     	else
     		return redirect('/login');
