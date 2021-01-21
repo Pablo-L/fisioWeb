@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
         });
 		
 		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_sexo_users CHECK (sexo in ("H", "M"));');
-		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_rol_users CHECK (rol in ("user", "admin", "recepcionista"));');
+		DB::statement('ALTER TABLE users ADD CONSTRAINT chk_rol_users CHECK (rol in ("user", "admin", "recepcionista", "trabajador"));');
     }
 
     /**

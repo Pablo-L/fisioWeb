@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class TrabajadoresTableSeeder extends Seeder
 {
@@ -13,7 +15,15 @@ class TrabajadoresTableSeeder extends Seeder
      */
     public function run()
     {
-         \DB::table('trabajadores')->delete();
-		\App\Models\Trabajadores::factory()->count(10)->create(); 
-    }
+        \DB::table('trabajadores')->delete();
+		$trabajadores = \App\Models\Trabajadores::factory()->count(10)->create();
+	
+		foreach($trabajadores as $trabajador)
+		{
+			$user = new User(['nombre' => $trabajador->nombre, 'apellidos' => '', 'email' => $trabajador->email, 'password' => Hash::make($trabajador->dni), 
+			'rol' => 'trabajador']);
+			$user->save();
+		}		
+		
+    }	
 }
