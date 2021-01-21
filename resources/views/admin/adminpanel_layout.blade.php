@@ -19,7 +19,7 @@
 			</script>
 		</head>
 		
-		<body style="background-color:#190061;">
+		<body style="background-color:#2b00a4;">
 		@include('admin/admin_navbar')
 		<main>
 		@yield('contenido')

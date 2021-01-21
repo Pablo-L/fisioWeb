@@ -2,12 +2,12 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#190061; color:white">
+	<div class="jumbotron" style="background-color:#2b00a4; color:white">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTrabajador">
 				  Dar de alta trabajador
 	  </button>
 	
-		<table class="table table-bordered table-hover">
+		<table class="table table-bordered table-hover" style="background-color:#66646a">
 		  <thead class="thead-dark">
 			<tr>
 			  <th scope="col" class="text-center">DNI</th>
