@@ -21,7 +21,7 @@
 			</script>
 		</head>
 		
-		<body style="background-color:#2b00a4;">
+		<body style="background: url(/imagenes/ep_naturalblack.png) repeat 0 0;">
 		@include('admin/admin_navbar')
 		<main>
 		@yield('contenido')

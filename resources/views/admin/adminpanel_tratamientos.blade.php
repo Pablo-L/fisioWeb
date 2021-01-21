@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#2b00a4; color:white; font-family:'Nobile';">
+	<div class="jumbotron" style="background-color:transparent; color:white; font-family:'Nobile';">
 	<div class="btn-group" role="group" aria-label="Basic example">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTratamiento">
 				  Añadir tratamiento

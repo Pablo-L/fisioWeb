@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #190061; font-family:'Nobile';">
+		<nav class="navbar navbar-expand-lg navbar-light" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile';">
 		  <a class="navbar-brand" style="color:white" href="/adminPanel">Panel de Administración</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -10,16 +10,16 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 			  <li class="nav-item ">
-				<a class="nav-link" style="border-right: 1px solid #000; border-left: 1px solid #000; color:white" href="{{route('admin_resumen')}}">Resumen</a>
+				<a class="nav-link" style="border-right: 2px solid #000; border-left: 2px solid #000; color:white" href="{{route('admin_resumen')}}">Resumen</a>
 			  </li>
 			  <li class="nav-item" >
-				<a class="nav-link" style="border-right: 1px solid #000; border-left: 1px solid #000; color:white" href="{{route('admin_tratamientos')}}">Tratamientos</a>
+				<a class="nav-link" style="border-right: 2px solid #000; color:white" href="{{route('admin_tratamientos')}}">Tratamientos</a>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" style="border-right: 1px solid #000; color:white" href="{{route('admin_trabajadores')}}">Trabajadores</a>
+			  <a class="nav-link" style="border-right: 2px solid #000; color:white" href="{{route('admin_trabajadores')}}">Trabajadores</a>
 			  </li>
 			  <li class="nav-item">
-			  <a class="nav-link" style="border-right: 1px solid #000; color:white" href="{{route('admin_citas')}}">Citas</a>
+			  <a class="nav-link" style="border-right: 2px solid #000; color:white" href="{{route('admin_citas')}}">Citas</a>
 			  </li>
 			  <li class="nav-item">
 			  <a class="nav-link" style="border-right: 3px solid #000; color:white" href="{{route('admin_users')}}">Usuarios</a>
