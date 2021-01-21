@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-	<div class="jumbotron" style="background-color:#2b00a4; color:white">
+	<div class="jumbotron" style="background-color:#2b00a4; color:white; font-family:'Nobile';">
 	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTrabajador">
 				  Dar de alta trabajador
 	  </button>
