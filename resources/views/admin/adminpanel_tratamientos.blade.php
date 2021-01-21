@@ -3,9 +3,15 @@
 @section('contenido')
 
 	<div class="jumbotron" style="background-color:#a7c5ed; border-top: 1px solid #000; border-bottom: 1px solid #000;">
-	<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#createTratamiento">
+	<div class="btn-group" role="group" aria-label="Basic example">
+	  <button type="button" class="btn btn-dark" style="margin-right:2px" data-toggle="modal" data-target="#createTratamiento">
 				  Añadir tratamiento
-	</button>
+	  </button>
+	  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Categorias">
+				  Categorías
+	  </button>
+	</div>
+	
 		<table class="table table-bordered table-hover">
 		  <thead class="thead-dark">
 			<tr>
@@ -60,7 +66,7 @@
             <label for="eleccioncategoria" class="col-form-label">Categoría:</label>
             <select id="categoriatratamiento" name="eleccioncategoria">
 			@foreach ($categorias as $categoria)
-			  <option value="{{$categoria}}">{{$categoria}}</option>
+			  <option value="{{$categoria->nombre}}">{{$categoria->nombre}}</option>
 			  @endforeach
 			</select>
           </div>
@@ -137,7 +143,7 @@
             <label for="eleccioncategoria" class="col-form-label">Categoría:</label>
             <select id="categoriatratamiento" name="eleccioncategoria">
 			@foreach ($categorias as $categoria)
-			  <option value="{{$categoria}}">{{$categoria}}</option>
+			  <option value="{{$categoria->nombre}}">{{$categoria->nombre}}</option>
 			  @endforeach
 			</select>
           </div>
@@ -154,6 +160,49 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Crear</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO --><!-- AÑADIR TRATAMIENTO -->
+
+<!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS --><!-- CATEGORIAS -->
+
+<form method="POST" action="{{ route('admin_categoria_create') }}">
+@csrf
+@method('POST')
+<div class="modal fade" id="Categorias" tabindex="-1" role="dialog" aria-labelledby="modifyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modifyModalLabel">Categorías</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="nombreCategoria" class="col-form-label">Inserta aquí el nombre de la nueva categoría a crear:</label>
+            <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" required placeholder ="Nombre de la categoría">
+          </div>
+		  <button type="submit" class="btn btn-primary">Crear categoría</button>
+		  </form>
+		  <form method="POST" action="{{ route('admin_categoria_delete') }}">
+			@csrf
+			@method('POST')
+          <div class="form-group">
+            <label for="eleccioncategoria" class="col-form-label">Elige una categoria para eliminar:</label>
+            <select id="categoriatratamiento" name="categoria_nombre">
+			@foreach ($categorias as $categoria)
+			  <option value="{{$categoria->nombre}}">{{$categoria->nombre}}</option>
+			  @endforeach
+			</select>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Eliminar</button>
       </div>
     </div>
   </div>

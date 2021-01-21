@@ -7,6 +7,7 @@ use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RecepcionistaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::get('adminPanel_tratamientos', [AdminController::class, 'obtenerdatosTrat
 Route::post('adminPanel_tratamientos', [TratamientosController::class, 'update'])->middleware(['auth'])->name('admin_tratamientos_update');
 Route::post('adminPanel_tratamientos/borrar', [TratamientosController::class, 'delete'])->middleware(['auth'])->name('admin_tratamientos_delete');
 Route::post('adminPanel_tratamientos/create', [TratamientosController::class, 'create'])->middleware(['auth'])->name('admin_tratamientos_create');
+Route::post('adminPanel_tratamientos/createcategoria', [CategoriasController::class, 'create'])->middleware(['auth'])->name('admin_categoria_create');
+Route::post('adminPanel_tratamientos/borrarcategoria', [CategoriasController::class, 'delete'])->middleware(['auth'])->name('admin_categoria_delete');
 
 Route::get('adminPanel_trabajadores', [AdminController::class, 'obtenerdatosTrabajadores'])->middleware(['auth'])->name('admin_trabajadores');
 

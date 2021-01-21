@@ -10,7 +10,7 @@ class Categorias extends Model
     use HasFactory;
 	
 	protected $table = 'categorias';
-	public $primarykey = 'nombre';
+	protected $primarykey = 'nombre';
 	public $incrementing = false;
 	public $timestamps = false;
 }

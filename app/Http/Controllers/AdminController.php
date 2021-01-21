@@ -30,7 +30,7 @@ class AdminController extends Controller
         
 		$tratamientos = \DB::table('tratamientos')->get();
 		
-		$categorias = \DB::table('tratamientos')->select('categoria')->distinct()->pluck('categoria');
+		$categorias = \DB::table('categorias')->get();
 			
 		return view('admin/adminpanel_tratamientos', ['tratamientos' => $tratamientos, 'categorias' => $categorias]);
 	}    

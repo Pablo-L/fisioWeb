@@ -21,7 +21,7 @@ class CreateTratamientosTable extends Migration
 			$table->string('descripcion', 1000);
 			$table->integer('tarifa');
 			
-			$table->foreign('categoria')->references('nombre')->on('categorias');
+			$table->foreign('categoria')->references('nombre')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
         });
 	}
 
