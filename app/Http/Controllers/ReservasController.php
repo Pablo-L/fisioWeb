@@ -46,7 +46,7 @@ class ReservasController extends Controller
     public function obtenerListadoCitasCliente()
     {	
         $reservas = \DB::table('reservas')->select('hora','dia','trabajador_id')
-                                                ->where('cliente_id',Auth::user()->id)->get();
+                                                ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
         return view('perfil/perfil_citas', ['reservas' => $reservas]);
     }
     //dado un id de trabajador y una fecha devuelve un 'bool' que determina si el día esta libre o no

@@ -77,7 +77,7 @@
 								<input type="date" name="dia" id="dia" min="{{$min}}">
 							</td>
 							<td>
-								<input type="number" name="hora" min="9" max="20">
+								<input type="time" name="hora" min="9" max="20">
 							</td>
 						</tr>
 						<tr>
