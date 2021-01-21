@@ -19,7 +19,7 @@
 			</script>
 		</head>
 		
-		<body>
+		<body style="background: url(/imagenes/black_lozenge.png) repeat 0 0;">
 		@include('includes/navbar')
 		<main>
 		@yield('contenido')

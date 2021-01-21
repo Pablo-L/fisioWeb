@@ -1,57 +1,47 @@
 <!-- Footer -->
-<footer class="bg-dark text-center text-light text-lg-start">
+<footer class="text-center text-light text-lg-start" style="background: url(/imagenes/black_lozenge.png) repeat 0 0; font-family:'Nobile';">
 	
-  <!-- Grid container -->
-  <div class="container">
+<div class="container p-4">
     <!--Grid row-->
     <div class="row">
-      <!--Grid column-->
-      <div class="col-lg-5 col-md-12 mb-4 mb-md-0 text-center">
-        <h5 class="text text-center">Sobre nosotros</h5>
-         Llevamos trabajando para el tratamiento de patologías
-		 fisiológicas desde 1963. <br>© 2021 Copyright:
-		<a class="text-light">Clínicas Fisioweb</a>
-      </div>
-      <!--Grid column-->
 
       <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text">&nbsp Contacta con nosotros</h5>
-		
-        <ul class="list-unstyled mb-0" style="columns:2">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h4 class="text">Información</h4>
+
+        <ul class="list-unstyled mb-0">
           <li>
-			<img src=/iconos/facebook.svg alt="" width="32" height="32"/>
-            <a href="https://es-es.facebook.com/clinicafisioweb"class="text-light">Facebook</a>
+            <a href="#!" class="text-white">Sobre nosotros</a>
           </li>
           <li>
-		  <img src=/iconos/twitter.svg alt="" width="32" height="32"/>
-            <a href="https://twitter.com/clinicafisioweb" class="text-light">Twitter</a>
-          </li>
-          <li>
-		  <img src=/iconos/instagram.svg alt="" width="32" height="32"/>
-            <a href="https://instagram.com/clinicafisioweb" class="text-light">Instagram</a>
-          </li>
-          <li>
-		  <img src=/iconos/mailbox.svg alt="" width="32" height="32"/>
-            <a href="" data-toggle="modal" data-target="#emailModal" data-whatever="clinicasfisioweb@info.com" class="text-light">E-Mail</a>
+            <a href="#!" class="text-white">Política de Privacidad</a>
           </li>
         </ul>
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text mb-0";">Información</h5>
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h4 class="text mb-0">Síguenos en RRSS</h4><br>
 
-        <ul class="list-unstyled" style="columns:1">
+        <ul class="list-unstyled" style="columns:4">
           <li>
-            <a href="{{route('infoPoliticas')}}" class="text-light">Política de privacidad</a>
+            <a href="https://es-es.facebook.com/clinicafisioweb" class="text-white">Facebook</a>
+			<img class="mr-3" src="/imagenes/facebook.png" alt="">
           </li>
-		  <li>
-		  <p class="text">Teléfono: 912 41 34 22</p>
-		  </li>
+          <li>
+            <a href="https://twitter.com/clinicafisioweb" class="text-white">Twitter</a>
+			<img class="mr-3" src="/imagenes/twitter.png" alt="">
+          </li>
+          <li>
+            <a href="https://instagram.com/clinicafisioweb" class="text-white">Instagram</a>
+			<img class="mr-3" src="/imagenes/instagram.png" alt="">
+          </li>
+          <li>
+            <a href="" data-toggle="modal" data-target="#emailModal" data-whatever="clinicasfisioweb@info.com" class="text-light">Contacto</a>
+			<img class="mr-3" src="/imagenes/email.png" alt="">
+          </li>
         </ul>
-		
       </div>
       <!--Grid column-->
     </div>
@@ -59,7 +49,6 @@
   </div>
   <!-- Grid container -->
 </footer>
-<!-- Footer -->
 
   <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -74,7 +63,7 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Email</label>
-            <input type="text" class="form-control" id="recipient-name" placeholder="clinicasfisioweb@info.com">
+            <input type="text" class="form-control" id="recipient-name" placeholder="clinicasfisioweb@info.com" value="clinicasfisioweb@info.com">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Mensaje:</label>
