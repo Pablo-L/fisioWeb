@@ -25,6 +25,12 @@
         <form id="reservaForm" name="reservaForm">
             @csrf
 
+            <!-- Tratamientos -->
+            <div>
+                <label>Tratamientos</label>
+                <input type="" name="">
+            </div>
+
             <!-- Días -->
             <div class="mt-4">
                 <x-label for="dia" :value="__('Dia')" />
