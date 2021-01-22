@@ -29,7 +29,7 @@
 			  <th scope="col" class="text-center">Cliente</th>
 			  <th scope="col" class="text-center">Trabajador</th>
 			  <th scope="col" class="text-center">Tratamiento</th>
-			  <th colspan=2" class="text-center">Acciones</th>
+			  <th colspan="2" class="text-center">Acciones</th>
 			</tr>
 		  </thead>
 		  <tbody>

@@ -1,9 +1,10 @@
 @extends ('layout')
 <?php
     use App\Http\Controllers\ReservasController;
-
+    use App\Http\Controllers\TrabajadoresController;
     $controlador = new ReservasController();
 
+    $trabajador = new TrabajadoresController();
     $arrayLibres = $controlador->obtenerDiasLibres();
     $arrayDias = $controlador->obtenerDiasSemana();
 ?>
@@ -12,16 +13,22 @@
     <x-auth-card>
         <x-slot name="logo">
             <nav class="navbar navbar-expand-lg navba bg">
-		  <a class="navbar-brand" style="color:grey;">Haz tu reserva con el doctor: {{$trabajador_id}}</a>
+		  <a class="navbar-brand" style="color:grey;">Haz tu reserva con {{$trabajador->obtenerNombre($trabajador_id)}}</a>
 		  </nav>
         </x-slot>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+		@if (\Session::has('error'))
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			{!! \Session::get('error') !!}
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+		@endif
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        
         <form id="reservaForm" name="reservaForm" method="POST" action="{{route('reservar')}}">
             @csrf
 
@@ -38,7 +45,7 @@
             <!-- Días -->
             <div class="mt-4">
                 <x-label for="dia" :value="__('Dia')" />
-                <!--<x-input id="dia" class="block mt-1 w-full" type="date" name="dia" :value="old('dia')" required autofocus />-->
+                <!-- Muestra en rojo los días no disponibles -->
                 <select id="dia" name="dia">
                 @foreach($arrayDias as $dia)
                     @if( in_array($dia, $arrayLibres) )
@@ -52,16 +59,20 @@
 
             <!-- Hora -->
             <div class="mt-4">
-                <x-label for="hora" :value="__('Hora')" />
+                <label>Hora</label>
                 <x-input id="hora" class="block mt-1 w-full" type="time" name="hora" :value="old('hora')" required autofocus />
             </div>
+            <!-- Campos ocultos -->
             <x-input id="trabajador_id" type="hidden" name="trabajador_id" value="{{$trabajador_id}}"/>
             <x-input id="cliente_id" type="hidden" name="cliente_id" value="{{Auth::user() ->id}}"/>
             <span id="spanMensaje" style="color:green;"></span>
+
+            <!-- Botón reservar -->
             <div class="flex items-center justify-end mt-4">
                 <input type="submit" value="Reservar cita" class="ml-3" onclick="">
             </div>
         </form>
+
     </x-auth-card>
 </x-guest-layout>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
