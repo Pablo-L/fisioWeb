@@ -24,10 +24,7 @@ class ReservasController extends Controller
         ]);
         $reservas->save();
 
-        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa', 'cliente_id')
-            ->where('cliente_id',Auth::user()->id)->where('dia','>=',now()->toDateString())
-            ->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
-        return view('perfil/perfil_citas', ['reservas' => $reservas])->with('success', true)->with('message','La cita se ha añadido correctamente');
+        return redirect()->route('miscitas')->with('success', true)->with('message','La cita se ha añadido correctamente');
     }
     
     //dado un id de trabajador realiza una reserva de tiempo ocupado
@@ -99,7 +96,7 @@ class ReservasController extends Controller
         $diaSeis = now()->addDays(5)->toDateString();
         $diaSiete = now()->addDays(6)->toDateString();
 
-        return array($diaUno, $diaDos, $diaDos, $diaTres, 
+        return array($diaUno, $diaDos, $diaTres, 
                         $diaCuarto, $diaCinco, $diaSeis, $diaSiete);
     }                             
     //cancelar reserva
