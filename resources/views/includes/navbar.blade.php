@@ -16,10 +16,13 @@
 				<a class="nav-link dropdown-toggle" style="color:white" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  Tratamientos
 				</a>
+				@php 
+				$tratamientos = DB::table('categorias')->get(); 
+				@endphp
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="{{route('infoFisioterapia')}}">Fisioterapia</a>
-				  <a class="dropdown-item" href="{{route('infoOsteopatia')}}">Osteopatía</a>
-				  <a class="dropdown-item" href="{{route('infoAcupuntura')}}">Acupuntura</a>
+				 @foreach ($tratamientos as $tratamiento)
+				  <a class="dropdown-item" href="{{route('Tratamientos')}}">{{$tratamiento->nombre}}</a>
+				  @endforeach
 				</div>
 			  </li>
 			  <li class="nav-item">
