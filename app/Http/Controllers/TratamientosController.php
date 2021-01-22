@@ -7,35 +7,14 @@ use App\Models\Tratamientos;
 
 class TratamientosController extends Controller
 {
-    public function obtenerTratamientosFisioterapia()
-    {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Fisioterapia')
-                ->get();
-        return view('Fisioterapia', ['tratamientos' => $tratamientos]);
-    }    
 	
 	public function obtenerTratamientos()
     {	
-        $tratamientos = \DB::table('tratamientos')->simplepaginate(5);
+		$categoria = request()->route('categoriatratamiento');
+		
+        $tratamientos = \DB::table('tratamientos')->where('categoria', '=', $categoria)->simplepaginate(5);
         return view('Tratamientos', ['tratamientos' => $tratamientos]);
     }    
-	
-	public function obtenerTratamientosAcupuntura()
-    {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Acupuntura')
-                ->get();
-        return view('Acupuntura', ['tratamientos' => $tratamientos]);
-    }	
-	
-	public function obtenerTratamientosOsteopatia()
-    {	
-        $tratamientos = \DB::table('tratamientos')
-                ->where('categoria', '=', 'Osteopatia')
-                ->get();
-        return view('Osteopatia', ['tratamientos' => $tratamientos]);
-    }
 	
 	public function create(Request $request)
 	{

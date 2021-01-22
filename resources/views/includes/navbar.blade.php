@@ -21,7 +21,7 @@
 				@endphp
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 				 @foreach ($tratamientos as $tratamiento)
-				  <a class="dropdown-item" href="{{route('Tratamientos')}}">{{$tratamiento->nombre}}</a>
+				  <a class="dropdown-item" href="{{route('Tratamientos', ['categoriatratamiento' => $tratamiento->nombre])}}">{{$tratamiento->nombre}}</a>
 				  @endforeach
 				</div>
 			  </li>

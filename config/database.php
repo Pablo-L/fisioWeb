@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysqlheroku'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
