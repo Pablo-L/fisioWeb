@@ -9,11 +9,11 @@
 @endif
 
 <div class="container">
-<h2>Tus citas</h2>
+<h2 style="color:#FFFF;">Tus citas</h2>
 @if ($reservas != null && count($reservas)>0)
 <table class="table table-bordered table-striped tablehover">
 <thead>
-<tr>
+<tr style="color:#FFFF; background:grey;">
 <th>Dia</th>
 <th>Hora</th>
 <th>Profesional</th>
@@ -27,12 +27,12 @@
  <tr>
  
  @if ($reserva->dia > now()->toDateString())
- <td >{{$reserva->dia}}</td>
- <td >{{$reserva->hora}}</td>
- <td >{{$reserva->trabajador_id}}</td>
- <td>{{$reserva->nombre}}</td>
- <td>{{$reserva->tarifa}}</td>
- <td>Pendiente</td>
+ <td style="color:#FFFF;" >{{$reserva->dia}}</td>
+ <td  style="color:#FFFF;"  >{{$reserva->hora}}</td>
+ <td   style="color:#FFFF;" >{{$reserva->trabajador_id}}</td>
+ <td  style="color:#FFFF;" >{{$reserva->nombre}}</td>
+ <td  style="color:#FFFF;" >{{$reserva->tarifa}}</td>
+ <td  style="color:#FFFF;" >Pendiente</td>
  @elseif ($reserva->dia == now()->toDateString())
  <td style="background:#FC8F03;">{{$reserva->dia}}</td>
  <td style="background:#FC8F03;">{{$reserva->hora}}</td>
