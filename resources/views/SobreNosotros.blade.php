@@ -12,13 +12,13 @@
 				<img style="width:50%; align:left;" src = "imagenes/equipo.jpg" alt="equipo"/>
 				<ul>
 					<li>	
-						<a href="https://github.com/cmartmac">Cristian
+						<a href="https://github.com/cmartmac">Cristian</a>
 					</li>
 					<li>
 						<a href="https://github.com/Pablo-L">Pablo</a> 
 					</li>
 					<li>
-						<a href="https://github.com/atta1996">Alejandro
+						<a href="https://github.com/atta1996">Alejandro</a>
 					</li>
 				</ul>
 		</p>
