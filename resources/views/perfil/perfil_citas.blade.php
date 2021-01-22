@@ -1,6 +1,9 @@
 @extends('layout')
 @section('contenido')
-
+<?php 
+    use App\Http\Controllers\TrabajadoresController;
+    $trabajador = new TrabajadoresController();
+?>
 @if(Session::has('success'))
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -29,14 +32,14 @@
  @if ($reserva->dia > now()->toDateString())
  <td style="color:#FFFF;" >{{$reserva->dia}}</td>
  <td  style="color:#FFFF;"  >{{$reserva->hora}}</td>
- <td   style="color:#FFFF;" >{{$reserva->trabajador_id}}</td>
+ <td   style="color:#FFFF;" >{{$trabajador->obtenerNombre($reserva->trabajador_id)}}</td>
  <td  style="color:#FFFF;" >{{$reserva->nombre}}</td>
  <td  style="color:#FFFF;" >{{$reserva->tarifa}}</td>
  <td  style="color:#FFFF;" >Pendiente</td>
  @elseif ($reserva->dia == now()->toDateString())
  <td style="background:#FC8F03;">{{$reserva->dia}}</td>
  <td style="background:#FC8F03;">{{$reserva->hora}}</td>
- <td style="background:#FC8F03;">{{$reserva->trabajador_id}}</td>
+ <td style="background:#FC8F03;">{{$trabajador->obtenerNombre($reserva->trabajador_id)}}</td>
  <td style="background:#FC8F03;">{{$reserva->nombre}}</td>
  <td style="background:#FC8F03;">{{$reserva->tarifa}}</td>
  <td style="background:#FC8F03;">Hoy</td>

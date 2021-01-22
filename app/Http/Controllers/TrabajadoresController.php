@@ -15,6 +15,13 @@ class TrabajadoresController extends Controller
         return view('/Profesionales', ['trabajadores' => $trabajadores]);
     }
 
+	//función que dado un dni retorna el nombre del trabajador
+	public function obtenerNombre($dni)
+    {	
+        $nombre = \DB::table('trabajadores')->select('nombre')
+		->where('DNI',$dni)->get();
+        return $nombre;
+    }
 
 	public function delete(Request $request)
 	{
