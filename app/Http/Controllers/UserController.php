@@ -162,6 +162,13 @@ class UserController extends Controller
 		
 		return redirect()->route('profile')->with('success','Método de pago modificado.');
 	}
-	
+
+		//función que dado un dni retorna el nombre del trabajador
+		public function obtenerNombre($id)
+		{	
+			$nombre = \DB::table('users')->select('nombre')
+			->where('id',$id)->get();
+			return $nombre;
+		}
 	
 }

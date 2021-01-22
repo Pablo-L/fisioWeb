@@ -24,8 +24,9 @@ class ReservasController extends Controller
         ]);
         $reservas->save();
 
-        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa')
-            ->where('cliente_id',Auth::user()->id)->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
+        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa', 'cliente_id')
+            ->where('cliente_id',Auth::user()->id)->where('dia','>=',now()->toDateString())
+            ->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
         return view('perfil/perfil_citas', ['reservas' => $reservas])->with('success', true)->with('message','La cita se ha añadido correctamente');
     }
     
@@ -50,7 +51,7 @@ class ReservasController extends Controller
     //dado un id de cliente muestra el listado de citas del cliente
     public function obtenerListadoCitasCliente()
     {	
-        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa')
+        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa', 'cliente_id')
             ->where('cliente_id',Auth::user()->id)->where('dia','>=',now()->toDateString())
                 ->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
         return view('perfil/perfil_citas', ['reservas' => $reservas]);
