@@ -11,9 +11,6 @@
       <h5 class="card-title text-center">{{$tratamiento->nombre}}</h5>
       <p class="card-text">{{$tratamiento->descripcion}}</p>
     </div>
-    <div class="card-footer" >
-      <a class="btn btn-outline-primary btn-block" href="" role="button">Reservar Cita</a>
-    </div>
 	</div>
 	@endforeach
 </div>
