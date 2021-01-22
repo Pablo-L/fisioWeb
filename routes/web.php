@@ -33,6 +33,7 @@ Route::post('/reservar', [ReservasController::class, 'realizarReservaCita'])->mi
 
 
 Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientosFisioterapia'])->name('infoFisioterapia');
+Route::get('/Tratamientos', [TratamientosController::class, 'obtenerTratamientos'])->name('Tratamientos');
 Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
 Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoliticas');

@@ -15,6 +15,12 @@ class TratamientosController extends Controller
         return view('Fisioterapia', ['tratamientos' => $tratamientos]);
     }    
 	
+	public function obtenerTratamientos()
+    {	
+        $tratamientos = \DB::table('tratamientos')->simplepaginate(5);
+        return view('Tratamientos', ['tratamientos' => $tratamientos]);
+    }    
+	
 	public function obtenerTratamientosAcupuntura()
     {	
         $tratamientos = \DB::table('tratamientos')
