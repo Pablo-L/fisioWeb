@@ -34,7 +34,7 @@ Route::post('/reservar', [ReservasController::class, 'realizarReservaCita'])->mi
 
 Route::get('/Tratamientos/{categoriatratamiento}', [TratamientosController::class, 'obtenerTratamientos'])->name('Tratamientos');
 Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoliticas');
-
+Route::get('/SobreNosotros', function() {return view('SobreNosotros');});
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
 Route::get('/adminPanel', [AdminController::class, 'show'])->middleware(['auth'])->name('adminPanel');
