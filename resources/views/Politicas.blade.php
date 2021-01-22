@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section('contenido')
-		
+	<div class="container" style="color:white;">	
 		<h1><strong>Políticas de Privacidad</strong></h1><br>
 		<p>Consideramos que la privacidad de nuestros clientes y usuarios debe ser primordial. Por esta razón aplicamos una política de transparencia a todos nuestros procesos para que los usuarios estén siempre informados y tengan control sobre su privacidad.</p>
 		<p>Le rogamos lea atentamente cada uno de estos términos que regulan el acceso y uso, y en general, la relación entre este website y los usuarios de este.</p><br>
@@ -92,6 +92,5 @@ CLÍNICA FISIO WEB elabora un perfil comercial en base a la información que u
     Actualizar nuestros registros: estos datos se mantendrán en el sistema de forma indefinida en tanto el interesado no solicite su supresión.<br>
     Verificar su identidad para fines de cumplimiento normativo: estos datos se mantendrán en el sistema de forma indefinida en tanto el interesado no solicite su supresión.<br>
 	</p>
-	<div class=jumbotron></div>
-	<div class=jumbotron></div>
+</div>
 @stop

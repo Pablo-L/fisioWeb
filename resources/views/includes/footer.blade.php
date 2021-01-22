@@ -14,7 +14,7 @@
             <a href="#!" class="text-white">Sobre nosotros</a>
           </li>
           <li>
-            <a href="#!" class="text-white">Política de Privacidad</a>
+            <a href="/Politicas" class="text-white">Política de Privacidad</a>
           </li>
         </ul>
       </div>
