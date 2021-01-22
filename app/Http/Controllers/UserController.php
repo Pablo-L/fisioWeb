@@ -166,8 +166,7 @@ class UserController extends Controller
 		//función que dado un dni retorna el nombre del trabajador
 		public function obtenerNombre($id)
 		{	
-			$nombre = \DB::table('users')->select('nombre')
-			->where('id',$id)->get();
+			$nombre = \DB::table('users')->where('id', $id)->value('nombre');
 			return $nombre;
 		}
 	
