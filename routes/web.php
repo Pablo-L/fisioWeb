@@ -36,7 +36,7 @@ Route::get('/Fisioterapia', [TratamientosController::class, 'obtenerTratamientos
 Route::get('/Osteopatia', [TratamientosController::class, 'obtenerTratamientosOsteopatia'])->name('infoOsteopatia');
 Route::get('/Acupuntura', [TratamientosController::class, 'obtenerTratamientosAcupuntura'])->name('infoAcupuntura');
 Route::get('/Politicas', function() {return view('Politicas');})->name('infoPoliticas');
-
+Route::get('/SobreNosotros', function() {return view('SobreNosotros');});
 
 //Panel de administracion -- Panel de administracion -- Panel de administracion
 Route::get('/adminPanel', [AdminController::class, 'show'])->middleware(['auth'])->name('adminPanel');
