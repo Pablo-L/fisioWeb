@@ -20,6 +20,13 @@ class TrabajadoresController extends Controller
     {	
 		$nombre = \DB::table('trabajadores')->where('DNI', $dni)->value('nombre');
         return $nombre;
+	}
+	
+	//función que dado un dni retorna el nombre del trabajador
+	public function obtenerDNI($id)
+    {	
+		$dni = \DB::table('trabajadores')->where('id', $id)->value('DNI');
+        return $dni;
     }
 
 	public function delete(Request $request)

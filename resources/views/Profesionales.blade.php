@@ -27,7 +27,7 @@
 	  <hr class="my-4">
       <p class="card-text">Persona trabajadora, brillante y con un gran futuro por delante. Su gran vocación por la fisioterapía le ha llevado a trabajar con nosotros en Fisioweb y a desarrollar su carrera profesional creciendo poco a poco a nuestro lado.</p>
       <p class="card-text"><small class="text-muted">Trabajando con nosotros desde hace {{rand(1,14)}} años.</small></p>
-	  <button  class="btn btn-primary" onclick="reservar('{{$trabajador->DNI}}')">Solicitar cita</button>
+	  <button  class="btn btn-primary" onclick="reservar('{{$trabajador->id}}')">Solicitar cita</button>
 	</div>
   </div>
 	@endforeach
