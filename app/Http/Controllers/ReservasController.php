@@ -15,19 +15,31 @@ class ReservasController extends Controller
     //dado un id de cliente y uno de trabajador realiza una reserva
     public function realizarReservaCita(Request $request)
     {
-        $reservas = Reservas::create([
-            'hora' => $request->hora,
-            'dia' => $request->dia,
-            'trabajador_id' => $request->trabajador_id,
-            'cliente_id' => $request->cliente_id,
-            'tratamiento_id' =>$request->tratamiento_id
-        ]);
-        $reservas->save();
+        if(in_array($request->dia, obtenerDiasLibres())){
+            //se está intentado pedir una cita en un día no laboral
+            return redirect('Reserva/'.$request->trabajador_id)->with('error', 'No puedes reservar una cita en un día libre');
+        }else if(!comprobarDiaDiasponible($request->dia)){
+            //el trabajador no puede recibir más visitas
+            return redirect('reservar/{{$request->trabajador_id}}')->with('error', 'Este trabajador ya tiene el cupo de citas completo ese día');
+        }else if(!comprobarHoraDisponible($request->hora)){
+            //el trabajador ya tiene una cita a esa hora
+            return redirect('reservar/{{$request->trabajador_id}}')->with('error','Este trabajador no tiene disponibilidad ese día a esa hora');
+        }else{
+        
+            $reservas = Reservas::create([
+                'hora' => $request->hora,
+                'dia' => $request->dia,
+                'trabajador_id' => $request->trabajador_id,
+                'cliente_id' => $request->cliente_id,
+                'tratamiento_id' =>$request->tratamiento_id
+            ]);
+            $reservas->save();
 
-        $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa', 'cliente_id')
-            ->where('cliente_id',Auth::user()->id)->where('dia','>=',now()->toDateString())
-            ->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
-        return view('perfil/perfil_citas', ['reservas' => $reservas])->with('success', true)->with('message','La cita se ha añadido correctamente');
+            $reservas = \DB::table('reservas')->join('tratamientos', 'reservas.tratamiento_id', '=', 'tratamientos.id')->select('hora','dia','trabajador_id', 'tratamientos.nombre', 'tratamientos.tarifa', 'cliente_id')
+                ->where('cliente_id',Auth::user()->id)->where('dia','>=',now()->toDateString())
+                ->orderBy('dia', 'ASC')->orderBy('hora', 'ASC')->get();
+            return view('perfil/perfil_citas', ['reservas' => $reservas])->with('success', true)->with('message','La cita se ha añadido correctamente');
+        }
     }
     
     //dado un id de trabajador realiza una reserva de tiempo ocupado
