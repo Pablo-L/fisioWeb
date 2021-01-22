@@ -20,10 +20,10 @@ class ReservasController extends Controller
             return redirect('Reserva/'.$request->trabajador_id)->with('error', 'No puedes reservar una cita en un día libre');
         }else if(!comprobarDiaDiasponible($request->dia)){
             //el trabajador no puede recibir más visitas
-            return redirect('reservar/{{$request->trabajador_id}}')->with('error', 'Este trabajador ya tiene el cupo de citas completo ese día');
+            return redirect('Reserva/'.$request->trabajador_id)->with('error', 'Este trabajador ya tiene el cupo de citas completo ese día');
         }else if(!comprobarHoraDisponible($request->hora)){
             //el trabajador ya tiene una cita a esa hora
-            return redirect('reservar/{{$request->trabajador_id}}')->with('error','Este trabajador no tiene disponibilidad ese día a esa hora');
+            return redirect('Reserva/'.$request->trabajador_id)->with('error','Este trabajador no tiene disponibilidad ese día a esa hora');
         }else{
         
             $reservas = Reservas::create([
