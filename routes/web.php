@@ -26,15 +26,8 @@ Route::get('/Inicio', function () {return view('Inicio');})->name('inicio');
 Route::get('/Profesionales', [TrabajadoresController::class, 'obtenerListadoTrabajadores'])->name('infoProfesionales');
 Route::get('/Tarifas', function () {return view('Tarifas');})->name('infoTarifas');
 
-Route::get('/Reserva/{idt}', [ReservasController::class, 'realizarReservaForm'])->middleware(['auth'])->name('reserva');
-Route::get('/Reservas/trabajador/{id}', [ReservasController::class, 'obtenerListadoCitasTrabajador'])->middleware(['auth']);
-Route::get('/Reservas/cliente/{id}', [ReservasController::class, 'obtenerListadoCitasCliente'])->middleware(['auth']);
-Route::get('admin/Reserva/{hora}/{dia}/{id}', [ReservasController::class, 'realizarReservaTiempo'])->middleware(['auth']);
-Route::get('/Reserva/cliente/{hora}/{dia}/{idT}/{idC}', [ReservasController::class, 'realizarReservaCita'])->middleware(['auth']);
-Route::get('/Reserva/trabajador/{id}/{dia}', [ReservasController::class, 'comprobarDiaDisponible'])->middleware(['auth']);
-Route::get('/Reserva/trabajador/{id}/{dia}/{hora}', [ReservasController::class, 'comprobarHoraDisponible'])->middleware(['auth']);
+Route::get('/Reserva/{idt}', [ReservasController::class, 'realizarReservaForm'])->middleware(['auth'])->name('reserva');;
 Route::post('/reservar', [ReservasController::class, 'realizarReservaCita'])->middleware(['auth'])->name('reservar');
-Route::get('/reservaConfirmacion', function() {return view('static/reservaConfirmacion');});
 
 
 

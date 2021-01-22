@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reservas;
+use App\Http\Controllers\TrabajadoresController;
 use Auth;
 
 class ReservasController extends Controller
@@ -15,13 +16,15 @@ class ReservasController extends Controller
     //dado un id de cliente y uno de trabajador realiza una reserva
     public function realizarReservaCita(Request $request)
     {
-        if(in_array($request->dia, obtenerDiasLibres())){
+        $trabajador = new TrabajadoresController();
+        $dni = $trabajador->obtenerDNI($request->trabajador_id);
+        if(in_array($request->dia, ReservasController::obtenerDiasLibres())){
             //se está intentado pedir una cita en un día no laboral
             return redirect('Reserva/'.$request->trabajador_id)->with('error', 'No puedes reservar una cita en un día libre');
-        }else if(!comprobarDiaDiasponible($request->dia)){
+        }else if(!ReservasController::comprobarDiaDisponible($dni,$request->dia)){
             //el trabajador no puede recibir más visitas
             return redirect('Reserva/'.$request->trabajador_id)->with('error', 'Este trabajador ya tiene el cupo de citas completo ese día');
-        }else if(!comprobarHoraDisponible($request->hora)){
+        }else if(!ReservasController::comprobarHoraDisponible($dni,$request->dia,$request->hora)){
             //el trabajador ya tiene una cita a esa hora
             return redirect('Reserva/'.$request->trabajador_id)->with('error','Este trabajador no tiene disponibilidad ese día a esa hora');
         }else{
@@ -29,7 +32,7 @@ class ReservasController extends Controller
             $reservas = Reservas::create([
                 'hora' => $request->hora,
                 'dia' => $request->dia,
-                'trabajador_id' => $request->trabajador_id,
+                'trabajador_id' => $dni,
                 'cliente_id' => $request->cliente_id,
                 'tratamiento_id' =>$request->tratamiento_id
             ]);
@@ -50,13 +53,6 @@ class ReservasController extends Controller
         return true;
     } 
 
-    //dado un id de trabajador muestra un listado de citas
-    public function obtenerListadoCitasTrabajador($id_trabajador)
-    {	
-        $reservas = \DB::table('reservas')->select('hora','dia','cliente_id')
-                                                ->where('trabajador_id',$id_trabajador)->get();
-        return view('/Reserva', ['reservas' => $reservas]);
-    } 
     //dado un id de cliente muestra el listado de citas del cliente
     public function obtenerListadoCitasCliente()
     {	
